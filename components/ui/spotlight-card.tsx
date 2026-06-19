@@ -36,7 +36,7 @@ export function SpotlightCard({
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
       className={cn(
-        "relative overflow-hidden rounded-2xl transition-colors duration-300",
+        "relative overflow-hidden rounded-2xl transition-colors duration-300 hover:border-accent/25",
         surfaceClassName,
         className,
       )}
