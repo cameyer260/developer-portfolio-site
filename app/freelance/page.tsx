@@ -3,7 +3,7 @@ import { FreelanceHero } from "@/components/freelance/freelance-hero";
 import { Pricing } from "@/components/freelance/pricing";
 
 export const metadata: Metadata = {
-  title: "Freelance Web Developer in Edwardsville, IL | Christopher Meyer",
+  title: "Freelance Web Developer in Edwardsville, IL",
   description:
     "Freelance software developer building fast, modern, SEO-friendly websites for local businesses in Edwardsville and the St. Louis area. Services and pricing.",
   alternates: {
