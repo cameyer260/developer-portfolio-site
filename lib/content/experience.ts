@@ -19,8 +19,8 @@ export const experience: readonly Role[] = [
     ],
   },
   {
-    company: "Freelance Software Developer",
-    title: "Self-Employed",
+    company: "Self-Employed",
+    title: "Freelance Software Developer",
     period: "2025 – Present",
     location: "Remote",
     bullets: [

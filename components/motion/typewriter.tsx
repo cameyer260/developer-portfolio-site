@@ -14,7 +14,6 @@ interface TypewriterProps {
   /** show a trailing blinking cursor */
   cursor?: boolean;
   className?: string;
-  onDone?: () => void;
 }
 
 /**
@@ -27,30 +26,20 @@ export function Typewriter({
   startDelay = 250,
   cursor = true,
   className,
-  onDone,
 }: TypewriterProps) {
   const reduceMotion = useReducedMotion();
   const [count, setCount] = useState(0);
-  const done = count >= text.length;
 
   useEffect(() => {
-    if (reduceMotion) {
-      setCount(text.length);
-      onDone?.();
-      return;
-    }
+    if (reduceMotion) return;
 
-    setCount(0);
+    let i = 0;
     let interval: ReturnType<typeof setInterval>;
     const start = setTimeout(() => {
       interval = setInterval(() => {
-        setCount((c) => {
-          if (c >= text.length) {
-            clearInterval(interval);
-            return c;
-          }
-          return c + 1;
-        });
+        i += 1;
+        setCount(i);
+        if (i >= text.length) clearInterval(interval);
       }, speed);
     }, startDelay);
 
@@ -60,14 +49,11 @@ export function Typewriter({
     };
   }, [text, speed, startDelay, reduceMotion]);
 
-  useEffect(() => {
-    if (done) onDone?.();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [done]);
+  const shown = reduceMotion ? text.length : count;
 
   return (
     <span className={cn("whitespace-pre-wrap", className)}>
-      {text.slice(0, count)}
+      {text.slice(0, shown)}
       {cursor && <Cursor className="ml-0.5" />}
     </span>
   );
