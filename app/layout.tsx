@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Nav } from "@/components/layout/nav";
+import { Footer } from "@/components/layout/footer";
 import "./globals.css";
 
 const plexSans = IBM_Plex_Sans({
@@ -33,7 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plexSans.variable} ${plexMono.variable} antialiased`}>
+        <Nav />
         {children}
+        <Footer />
         <Analytics />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
       </body>

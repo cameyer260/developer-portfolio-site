@@ -19,6 +19,15 @@
   /* Typography (wired in layout.tsx via next/font) */
   --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Signature motion */
+  --animate-blink: blink 1.1s steps(1) infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 
 @layer base {
