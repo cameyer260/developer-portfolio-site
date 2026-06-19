@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/*
+  Warm-dark, terminal-soul design system.
+  See docs/adr/0002-warm-dark-terminal-soul-visual-identity.md
+*/
+
+@theme {
+  /* Color tokens (warm-dark + amber) */
+  --color-bg: #17130e; /* page base — warm charcoal, NOT black */
+  --color-surface: #1f1a12; /* cards / raised surfaces */
+  --color-surface-2: #262019; /* nested surfaces, inputs */
+  --color-text: #f5efe6; /* primary text — warm off-white */
+  --color-muted: #8a7e6e; /* secondary text, labels */
+  --color-accent: #f59e0b; /* amber signature — links, CTAs, prompt */
+  --color-accent-2: #e8703a; /* burnt orange — used sparingly */
+  --color-border: rgba(245, 239, 230, 0.08); /* hairline borders */
+
+  /* Typography (wired in layout.tsx via next/font) */
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 28%, transparent);
+    color: var(--color-text);
+  }
+
+  /* Thin warm scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-surface-2) transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
