@@ -18,4 +18,3 @@ engineering story a recruiter cares about.
 - The homepage stays recruiter-focused and never shows pricing.
 - `/freelance` can target local-business (Edwardsville / St. Louis) SEO on its own.
 - The examples gallery (`/examples` on the old site) is removed for this rebuild and has a clear future home under `/freelance`.
-- Contact uses a Google Voice number (314) on the site to limit spam, while the personal number lives on the resume PDF — the mismatch is intentional, not a typo.

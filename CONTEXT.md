@@ -23,7 +23,7 @@ freelance page for Clients.
 
 **Freelance page** (`/freelance`):
 The Client-facing page holding Services & Pricing, and the future home of the
-rebuilt examples gallery. Reached via the hero's "Need a website?" door.
+everything freelance software related. Reached via the hero's "Need a website?" door.
 
 **Two doors**:
 The hero's pair of primary calls to action that split the two audiences: a
