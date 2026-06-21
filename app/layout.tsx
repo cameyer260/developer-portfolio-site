@@ -46,7 +46,13 @@ export const metadata: Metadata = {
     "St. Louis",
     "SIUE",
   ],
-  icons: { icon: "/favicon.ico", apple: "/favicon.ico" },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },
+    ],
+    apple: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     url: SITE_URL,
