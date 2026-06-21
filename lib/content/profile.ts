@@ -23,7 +23,4 @@ export const profile = {
   },
 
   resume: "/christopher-meyer-resume.pdf",
-
-  /** Beyond the Code. */
-  interests: ["Golfing", "Music — rock, rap, R&B"],
 } as const;
