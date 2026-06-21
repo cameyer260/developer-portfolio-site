@@ -9,7 +9,7 @@ import { Contact } from "@/components/home/contact";
 
 export default function Home() {
   return (
-    <main>
+    <main id="top">
       <Hero />
       <About />
       <FeaturedWork />

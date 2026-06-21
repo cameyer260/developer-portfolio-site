@@ -15,7 +15,7 @@ export function Nav() {
     <header className="sticky top-0 z-50 border-b border-border bg-bg/70 backdrop-blur supports-[backdrop-filter]:bg-bg/60">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
         <Link
-          href="/"
+          href="/#top"
           className="font-mono text-sm font-medium tracking-tight transition-colors hover:text-accent"
         >
           <span className="text-accent">~/</span>christopher-meyer
