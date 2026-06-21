@@ -15,6 +15,7 @@ export function About() {
               height={750}
               sizes="(min-width: 768px) 40vw, 100vw"
               className="h-full w-full object-cover"
+              priority
             />
             <figcaption className="border-t border-border px-4 py-2 font-mono text-xs text-muted">
               ~/christopher-meyer.webp
