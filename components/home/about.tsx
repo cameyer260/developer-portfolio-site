@@ -11,8 +11,8 @@ export function About() {
             <Image
               src="/christopher-meyer.webp"
               alt="Christopher Meyer"
-              width={1000}
-              height={750}
+              width={1200}
+              height={801}
               sizes="(min-width: 768px) 40vw, 100vw"
               className="h-full w-full object-cover"
               priority
