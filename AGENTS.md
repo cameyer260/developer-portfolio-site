@@ -36,7 +36,8 @@ visually where it matters.
 
 The site is **content-driven**. All copy and data live in typed modules under
 `lib/content/` (`profile`, `projects`, `experience`, `education`, `skills`,
-`pricing`). Components consume that data and own presentation only.
+`pricing`, `faq`, `testimonials`). Components consume that data and own
+presentation only.
 
 - To change text, projects, pricing, etc. → **edit the content module**, not the
   component.
@@ -94,10 +95,17 @@ Conventions:
   so the host's `.next` / `node_modules` aren't clobbered. If the host build ever
   breaks with chunk/platform errors, delete `.next` **and** `node_modules` on the
   Mac and reinstall.
+- **`npm run build`'s type-check can walk `node_modules.claudey`.** The container's
+  Linux dependency tree isn't excluded from TypeScript's `**/*.ts` include glob by
+  default, so a build run from inside the container can fail on dependency source.
+  `tsconfig.json`'s `exclude` list covers `node_modules.claudey` and `.next.claudey`
+  explicitly — if a new container-only artifact dir shows up, add it there too.
 - **`NEXT_PUBLIC_WEB3FORMS_KEY`** is required for the contact form — it's injected
-  as the Web3Forms `access_key` (`components/home/contact.tsx`). Unlike GA there's no
-  guard, so if it's unset the form renders `access_key=undefined` and submissions
-  silently fail (the form drops into its error state). Add it to `.env.local`.
+  as the Web3Forms `access_key` in the shared `components/contact/contact-form.tsx`
+  (used by both the homepage `Contact` and `/freelance`'s `FreelanceContact`). Unlike
+  GA there's no guard, so if it's unset the form renders `access_key=undefined` and
+  submissions silently fail (the form drops into its error state). Add it to
+  `.env.local`.
 - **`NEXT_PUBLIC_GA_ID`** is optional — Google Analytics only mounts when it's set,
   so its absence in dev is expected, not a bug.
 
