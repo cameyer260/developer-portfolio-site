@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FreelanceHero } from "@/components/freelance/freelance-hero";
+import { Testimonials } from "@/components/freelance/testimonials";
 import { Pricing } from "@/components/freelance/pricing";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function FreelancePage() {
   return (
     <main>
       <FreelanceHero />
+      <Testimonials />
       <Pricing />
     </main>
   );
