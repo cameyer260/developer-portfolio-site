@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { FreelanceHero } from "@/components/freelance/freelance-hero";
 import { Testimonials } from "@/components/freelance/testimonials";
 import { Pricing } from "@/components/freelance/pricing";
+import { Faq } from "@/components/freelance/faq";
+import { FreelanceContact } from "@/components/freelance/freelance-contact";
 
 export const metadata: Metadata = {
   title: "Freelance Web Developer in Edwardsville, IL",
@@ -25,6 +27,8 @@ export default function FreelancePage() {
       <FreelanceHero />
       <Testimonials />
       <Pricing />
+      <Faq />
+      <FreelanceContact />
     </main>
   );
 }

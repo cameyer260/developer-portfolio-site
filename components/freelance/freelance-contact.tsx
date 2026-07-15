@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { profile } from "@/lib/content/profile";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TerminalWindow } from "@/components/ui/terminal-window";
@@ -6,32 +6,30 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { Reveal } from "@/components/motion/reveal";
 
 const channels = [
-  { icon: Mail, label: "email", value: profile.email, href: `mailto:${profile.email}` },
-  { icon: Phone, label: "phone", value: profile.phone, href: `tel:${profile.phoneHref}` },
   {
-    icon: Github,
-    label: "github",
-    value: "github.com/cameyer260",
-    href: profile.socials.github,
+    icon: Mail,
+    label: "email",
+    value: profile.email,
+    href: `mailto:${profile.email}`,
   },
   {
-    icon: Linkedin,
-    label: "linkedin",
-    value: "in/cameyer06",
-    href: profile.socials.linkedin,
+    icon: Phone,
+    label: "phone",
+    value: profile.phone,
+    href: `tel:${profile.phoneHref}`,
   },
 ] as const;
 
-export function Contact() {
+export function FreelanceContact() {
   return (
     <section
-      id="contact"
-      className="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-6 sm:py-20"
+      id="freelance-contact"
+      className="mx-auto max-w-6xl scroll-mt-20 px-5 py-12 sm:px-6 sm:py-16"
     >
       <SectionHeading
         command="./contact.sh"
-        title="Get in touch"
-        description="Open to Summer 2027 SWE internships and freelance work. Drop a line."
+        title="Let's build something"
+        description="Tell me about your business and what you need — I'll follow up with next steps and a quote."
       />
 
       <div className="mt-10 grid gap-6 md:grid-cols-[0.85fr_1.15fr]">
@@ -41,8 +39,6 @@ export function Contact() {
               <a
                 key={label}
                 href={href}
-                target={href.startsWith("http") ? "_blank" : undefined}
-                rel={href.startsWith("http") ? "noreferrer" : undefined}
                 className="group flex items-center gap-3 font-mono text-sm"
               >
                 <span className="grid size-9 shrink-0 place-items-center rounded-md border border-border bg-surface-2 text-muted transition-colors group-hover:text-accent">
@@ -61,7 +57,7 @@ export function Contact() {
 
         <Reveal delay={0.08}>
           <TerminalWindow title="contact.sh">
-            <ContactForm />
+            <ContactForm messagePlaceholder="Tell me about your business and what you're looking for." />
           </TerminalWindow>
         </Reveal>
       </div>
