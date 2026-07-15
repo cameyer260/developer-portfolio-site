@@ -18,6 +18,14 @@ export const metadata: Metadata = {
       "Custom websites and software for local businesses in Edwardsville and the St. Louis area.",
     url: "https://www.christophermeyer.dev/freelance",
     type: "website",
+    images: [{ url: "/freelance-og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Freelance Web Developer in Edwardsville, IL | Christopher Meyer",
+    description:
+      "Custom websites and software for local businesses in Edwardsville and the St. Louis area.",
+    images: ["/freelance-og-image.png"],
   },
 };
 
