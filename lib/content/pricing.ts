@@ -1,72 +1,81 @@
-export type PricingTier = {
+export type Offering = {
+  title: string;
+  price: string;
+  description: string;
+  includes: readonly string[];
+  /** Short scaling caption shown under the includes list. */
+  note?: string;
+  cta: string;
+};
+
+/** The two channels of freelance work — website vs. custom software. */
+export const offerings: readonly Offering[] = [
+  {
+    title: "Website",
+    price: "Starting at $499",
+    description:
+      "A fast, professional website that makes it easy for people to find you and get in touch.",
+    includes: [
+      "Custom homepage + the core pages you need",
+      "Strong SEO so you show up on Google",
+      "Email contact form that reaches you directly",
+      "Embedded Google Map and business info",
+      "Mobile-friendly, fast-loading design",
+    ],
+    note: "Need more — booking, a blog, custom design? I can add it, with cost scaling to match.",
+    cta: "Get a Quote",
+  },
+  {
+    title: "Custom Software",
+    price: "Custom quote",
+    description:
+      "For projects that go beyond a standard website. Scope varies a lot, so every build starts with a conversation.",
+    includes: [
+      "Web apps and customer portals",
+      "Booking, scheduling, and payment flows",
+      "Dashboards and internal tools",
+      "Integrations with the tools you already use",
+      "Custom workflows scoped to your business",
+    ],
+    cta: "Request a Quote",
+  },
+] as const;
+
+export type SupportTier = {
   title: string;
   price: string;
   description: string;
   includes: readonly string[];
   cta: string;
-  /** Highlighted tier — "Most Popular". */
+  /** Highlighted tier — "Recommended". */
   popular?: boolean;
 };
 
-/** Freelance pricing tiers — ported from the old site, restyled warm. */
-export const pricingTiers: readonly PricingTier[] = [
+/** Post-launch support tiers, shown below the offerings. */
+export const supportTiers: readonly SupportTier[] = [
   {
-    title: "Business Website",
-    price: "Starting at $750",
+    title: "Hosting",
+    price: "$25/month",
     description:
-      "For simple, professional small-business sites that make it easy for people to find you and get in touch.",
+      "Reliable hosting to keep your site online, secure, and up to date.",
     includes: [
-      "3–5 page website",
-      "Mobile-friendly design",
-      "Contact form for calls and emails",
-      "Google Maps and business information",
-      "Clean, modern layout built for easy browsing",
+      "Fast, secure hosting with SSL",
+      "Software and security updates",
+      "Bug fixes included",
     ],
-    cta: "Get a Quote",
+    cta: "Ask About Hosting",
   },
   {
-    title: "Growth Website",
-    price: "Starting at $1,500",
+    title: "Hosting & Maintenance",
+    price: "$100/month",
     description:
-      "For businesses that want a more custom design and stronger lead-generation structure.",
+      "Hosting plus ongoing small edits, so your site stays current without you touching code.",
     includes: [
-      "Everything in Business Website",
-      "Custom design tailored to your business",
-      "Conversion-focused layout",
-      "Basic SEO setup",
-      "Testimonials or reviews section",
-      "Clear calls to action throughout the site",
+      "Everything in Hosting",
+      "Small content changes — swap an image or text, add a button, remove something",
+      "Larger changes quoted separately",
     ],
-    cta: "Get a Quote",
+    cta: "Ask About Maintenance",
     popular: true,
   },
-  {
-    title: "Custom Software / Advanced Website",
-    price: "Custom quote",
-    description:
-      "For businesses that need more than a standard website, with a more advanced or involved build.",
-    includes: [
-      "Advanced websites with custom scope",
-      "Booking systems, forms, and connected tools",
-      "Dashboards and internal tools",
-      "Integrations and custom workflows",
-      "Tracking or content guidance when the project calls for it",
-    ],
-    cta: "Request Custom Quote",
-  },
 ] as const;
-
-/** Support add-on shown below the three tiers. */
-export const maintenanceTier = {
-  title: "Maintenance & Hosting",
-  price: "Starting at $99/month",
-  description:
-    "Ongoing hosting, updates, and support to keep your website running smoothly after launch.",
-  includes: [
-    "Hosting and routine website upkeep",
-    "Software and security updates",
-    "Text, photo, and small content edits",
-    "Form checks and help when something needs attention",
-  ],
-  cta: "Ask About Maintenance",
-} as const;

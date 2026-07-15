@@ -45,7 +45,7 @@ export function FreelanceHero() {
         <Reveal delay={0.2}>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
-              <Link href="/#contact">
+              <Link href="#freelance-contact">
                 Get a quote <ArrowRight />
               </Link>
             </Button>
