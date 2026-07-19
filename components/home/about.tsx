@@ -28,17 +28,20 @@ export function About() {
             <p className="font-mono text-sm text-accent">&gt; cat about.md</p>
             <div className="mt-4 space-y-4 text-text/90">
               <p>
-                I&apos;m a Computer Science student at SIUE building AI agents
-                and full-stack products. Right now I&apos;m a software engineer
-                intern at {profile.status.current.replace("SWE Intern @ ", "")},
-                shipping features across an AI operating system for fitness
-                centers.
+                I&apos;m a Computer Science student at SIUE who enjoys building
+                practical, full-stack products. Right now, I&apos;m a software
+                engineering intern at{" "}
+                {profile.status.current.replace("SWE Intern @ ", "")}, where I
+                ship features for an all-in-one platform that helps Pilates
+                studios manage clients, staff, classes, events, bookings, and
+                payments.
               </p>
               <p>
-                On the side I freelance for local businesses around Edwardsville
-                and the St. Louis area — designing, building, and deploying their
-                sites end-to-end. I care about shipping real things: agentic
-                pipelines, production RAG, and real-time apps.
+                On the side, I freelance for local businesses around Edwardsville
+                and the St. Louis area—designing, building, and deploying websites
+                and custom software from start to finish. I care about solving real
+                problems, owning my work end to end, and shipping software people
+                actually use.
               </p>
             </div>
           </div>

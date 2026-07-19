@@ -4,7 +4,7 @@ export const profile = {
   location: "Edwardsville, IL · St. Louis area",
 
   /** Typed in the hero. See CONTEXT.md → Profile / Hero. */
-  whoami: "Software engineer building AI agents & full-stack products.",
+  whoami: "Software engineer building practical, full-stack products.",
 
   status: {
     current: "SWE Intern @ Zipper",
