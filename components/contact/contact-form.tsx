@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { profile } from "@/lib/content/profile";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,7 @@ interface ContactFormProps {
 export function ContactForm({
   messagePlaceholder = "Let's build something.",
 }: ContactFormProps) {
+  const formId = useId();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
@@ -74,34 +75,48 @@ export function ContactForm({
   return (
     <form onSubmit={onSubmit} className="grid gap-4 sm:grid-cols-2">
       <div>
-        <label className="mb-1.5 block font-mono text-xs text-muted">
+        <label
+          htmlFor={`${formId}-name`}
+          className="mb-1.5 block font-mono text-xs text-muted"
+        >
           name
         </label>
         <input
+          id={`${formId}-name`}
           name="name"
           type="text"
+          autoComplete="name"
           required
           placeholder="Ada Lovelace"
           className={inputClass}
         />
       </div>
       <div>
-        <label className="mb-1.5 block font-mono text-xs text-muted">
+        <label
+          htmlFor={`${formId}-email`}
+          className="mb-1.5 block font-mono text-xs text-muted"
+        >
           email
         </label>
         <input
+          id={`${formId}-email`}
           name="email"
           type="email"
+          autoComplete="email"
           required
           placeholder="you@example.com"
           className={inputClass}
         />
       </div>
       <div className="sm:col-span-2">
-        <label className="mb-1.5 block font-mono text-xs text-muted">
+        <label
+          htmlFor={`${formId}-message`}
+          className="mb-1.5 block font-mono text-xs text-muted"
+        >
           message
         </label>
         <textarea
+          id={`${formId}-message`}
           name="message"
           required
           placeholder={messagePlaceholder}
@@ -127,7 +142,10 @@ export function ContactForm({
       </div>
 
       {error ? (
-        <p className="font-mono text-sm text-accent-2 sm:col-span-2">
+        <p
+          role="alert"
+          className="font-mono text-sm text-accent-2 sm:col-span-2"
+        >
           ✗ something went wrong — try again or email directly.
         </p>
       ) : null}
