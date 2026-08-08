@@ -17,14 +17,14 @@ The secondary audience, served by the dedicated freelance page.
 _Avoid_: customer, buyer
 
 **Homepage** (`/`):
-The engineer-facing portfolio: hero, projects, experience, skills, contact. Kept
-clean and impressive for Recruiters; carries a clearly signposted door to the
-freelance page for Clients.
+The engineer-facing portfolio: hero, projects, experience, recommendations,
+skills, contact. Kept clean and impressive for Recruiters; carries a clearly
+signposted door to the freelance page for Clients.
 
 **Freelance page** (`/freelance`):
-The Client-facing page: hero, testimonials, pricing, FAQ, and a dedicated contact
-form (separate from the homepage's, so CTAs don't bounce Clients to a Recruiter-
-flavored form). Reached via the hero's "Need a website?" door.
+The Client-facing page: hero, Client Reviews, pricing, FAQ, and a dedicated
+contact form (separate from the homepage's, so CTAs don't bounce Clients to a
+Recruiter-flavored form). Reached via the hero's "Need a website?" door.
 
 **Two doors**:
 The hero's pair of primary calls to action that split the two audiences: a
@@ -35,6 +35,18 @@ the freelance page). The structural expression of the builder-first, two-path st
 The homepage section showcasing the three flagship projects (Site Builder,
 StafferAI, PlaySkillSphere). The canonical name for the projects showcase.
 _Avoid_: Portfolio, Projects, Work (used loosely on the old site)
+
+**Recommendations**:
+Professional recommendations (e.g. LinkedIn) shown on the homepage after
+Experience. Recruiter-facing social proof from managers and collaborators —
+not client reviews. Content lives in `lib/content/recommendations.ts`.
+_Avoid_: Testimonials (reserved for Client Reviews on `/freelance`)
+
+**Client Reviews**:
+Star-rated client feedback on the freelance page (`/freelance#reviews`).
+Content lives in `lib/content/testimonials.ts`. Distinct from homepage
+Recommendations.
+_Avoid_: Recommendations (use that name only for the recruiter-facing section)
 
 **Examples gallery**:
 The set of fictional industry-specific demo sites used as freelance sales assets.

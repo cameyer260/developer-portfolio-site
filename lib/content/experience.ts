@@ -10,7 +10,7 @@ export const experience: readonly Role[] = [
   {
     company: "Zipper",
     title: "Software Engineer Intern",
-    period: "Mar 2026 – Present",
+    period: "Mar 2026 – Aug 2026",
     location: "Remote",
     bullets: [
       "Shipped 50+ features and fixes across an AI OS for fitness centers — CRM, Stripe, scheduling and staff management.",

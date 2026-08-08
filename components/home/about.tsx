@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { profile } from "@/lib/content/profile";
 import { Reveal } from "@/components/motion/reveal";
 
 export function About() {
@@ -29,12 +28,10 @@ export function About() {
             <div className="mt-4 space-y-4 text-text/90">
               <p>
                 I&apos;m a Computer Science student at SIUE who enjoys building
-                practical, full-stack products. Right now, I&apos;m a software
-                engineering intern at{" "}
-                {profile.status.current.replace("SWE Intern @ ", "")}, where I
-                ship features for an all-in-one platform that helps Pilates
-                studios manage clients, staff, classes, events, bookings, and
-                payments.
+                practical, full-stack products. I recently completed a software
+                engineering internship at Zipper, where I shipped features for an
+                all-in-one platform that helps Pilates studios manage clients,
+                staff, classes, events, bookings, and payments.
               </p>
               <p>
                 On the side, I freelance for local businesses around Edwardsville

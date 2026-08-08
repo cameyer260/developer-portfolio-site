@@ -2,6 +2,7 @@ import { Hero } from "@/components/home/hero";
 import { About } from "@/components/home/about";
 import { FeaturedWork } from "@/components/home/featured-work";
 import { Experience } from "@/components/home/experience";
+import { Recommendations } from "@/components/home/recommendations";
 import { Skills } from "@/components/home/skills";
 import { EducationResume } from "@/components/home/education-resume";
 import { BeyondTheCode } from "@/components/home/beyond-the-code";
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <FeaturedWork />
       <Experience />
+      <Recommendations />
       <Skills />
       <EducationResume />
       <BeyondTheCode />

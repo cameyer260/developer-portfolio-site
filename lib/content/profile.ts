@@ -7,7 +7,7 @@ export const profile = {
   whoami: "Software engineer building practical, full-stack products.",
 
   status: {
-    current: "SWE Intern @ Zipper",
+    current: "a CS student at SIUE",
     openTo: "Summer 2027 SWE internships & freelance",
   },
 
