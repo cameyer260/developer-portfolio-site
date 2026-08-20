@@ -17,7 +17,7 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-6xl px-5 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-24">
         <Reveal>
-          <Badge>
+          <Badge className="whitespace-normal sm:whitespace-nowrap">
             <span className="size-1.5 rounded-full bg-accent" />
             open to {profile.status.openTo}
           </Badge>
