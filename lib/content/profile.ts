@@ -3,7 +3,7 @@ export const profile = {
   role: "Software Engineer",
   location: "Edwardsville, IL · St. Louis area",
 
-  /** Typed in the hero. See CONTEXT.md → Profile / Hero. */
+  /** Typed in the hero. */
   whoami: "Software engineer building practical, full-stack products.",
 
   status: {

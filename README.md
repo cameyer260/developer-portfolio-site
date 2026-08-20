@@ -1,19 +1,16 @@
 # Christopher Meyer — Dev Portfolio
 
-Personal developer portfolio for Christopher Meyer, built with Next.js. It serves
-two audiences from one site, leading with the software-engineer identity:
-
-- **`/`** — the recruiter-facing homepage (hero, featured work, experience, skills,
-  contact). Clean and impressive; never shows pricing.
-- **`/freelance`** — the client-facing page for local businesses (services &
-  pricing), reached from the hero's "need a website?" door.
+My personal developer portfolio, showcasing myself as a full-stack software engineer, 
+including my skills, experience, and projects. The site includes a two-way funnel to 
+the two opportunities I am currently interested in: a Winter/Spring, Summer, or Fall 
+of 2027 software engineering internship and freelance software development work. So 
+the two primary viewers for this site will recruiters and small business owners/managers. 
+Hence the reason for having my general home page and a seperate `/freelance` page. It is
+a simple static Next.js site that is hosted on Vercel.
 
 The visual identity is a **warm-dark, terminal-soul** aesthetic — a modern site
 with terminal *flavor* (typewriter `whoami`, blinking cursor, amber prompt accents),
 not a literal terminal UI.
-
-> For the "why" behind these decisions, see [`CONTEXT.md`](./CONTEXT.md) (project
-> glossary / ubiquitous language) and the [Architecture Decision Records](./docs/adr).
 
 ## Tech stack
 
@@ -75,9 +72,7 @@ lib/
   content/               # All site copy/data as typed TS modules (the content layer)
   utils.ts               # cn() — clsx + tailwind-merge helper
 
-docs/adr/                # Architecture Decision Records
 public/                  # Static assets (resume PDF, images, favicons, OG image)
-CONTEXT.md               # Glossary / ubiquitous language for the project
 ```
 
 ## How content works

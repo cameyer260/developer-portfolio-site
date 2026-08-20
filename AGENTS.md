@@ -1,22 +1,35 @@
 # AGENTS.md
 
 Guidance for AI agents and contributors working in this repo. Read this before
-making changes. For human-oriented setup, see [`README.md`](./README.md); for the
-project's vocabulary and the reasoning behind structural choices, see
-[`CONTEXT.md`](./CONTEXT.md) and [`docs/adr/`](./docs/adr).
+making changes. For human-oriented setup, see [`README.md`](./README.md).
 
 ## What this is
 
-Christopher Meyer's personal developer portfolio — a Next.js 16 (App Router) site
-on React 19, TypeScript (strict), and Tailwind CSS v4. It serves two audiences from
-one site:
+My personal developer portfolio, showcasing myself as a full-stack software engineer, 
+including my skills, experience, and projects. The site includes a two-way funnel to 
+the two opportunities I am currently interested in: a Winter/Spring, Summer, or Fall 
+of 2027 software engineering internship and freelance software development work. So 
+the two primary viewers for this site will recruiters and small business owners/managers. 
+Hence the reason for having my general home page and a seperate `/freelance` page. It is
+a simple static Next.js site that is hosted on Vercel.
 
-- **`/`** — recruiter-facing homepage. Leads with the engineer identity. **Never
-  shows pricing.**
-- **`/freelance`** — client-facing page for local businesses (services & pricing).
+The visual identity is a **warm-dark, terminal-soul** aesthetic — a modern site
+with terminal *flavor* (typewriter `whoami`, blinking cursor, amber prompt accents),
+not a literal terminal UI.
 
-This split is deliberate (ADR 0001). Keep commercial/freelance content off the
-homepage.
+## Tech stack
+
+| Area        | Choice                                                       |
+| ----------- | ------------------------------------------------------------ |
+| Framework   | [Next.js 16](https://nextjs.org) (App Router), React 19      |
+| Language    | TypeScript 5 (strict)                                        |
+| Styling     | Tailwind CSS v4 (CSS-first `@theme` config in `globals.css`) |
+| Motion      | framer-motion                                                |
+| Icons       | lucide-react                                                 |
+| UI plumbing | Radix Slot, class-variance-authority, clsx, tailwind-merge   |
+| Fonts       | IBM Plex Mono + IBM Plex Sans (via `next/font`)              |
+| Analytics   | Vercel Analytics + Google Analytics                          |
+| Hosting     | Vercel                                                       |
 
 ## Commands
 
@@ -88,18 +101,6 @@ Conventions:
 
 ## Gotchas — read these
 
-- **Containerized agents and `.next` / `node_modules`.** This repo is often worked
-  on from a Linux container while the host is macOS. Running the Next.js dev server
-  or build inside the container writes platform-specific artifacts. The repo
-  isolates these via `.next.claudey/` and `node_modules.claudey/` (both gitignored)
-  so the host's `.next` / `node_modules` aren't clobbered. If the host build ever
-  breaks with chunk/platform errors, delete `.next` **and** `node_modules` on the
-  Mac and reinstall.
-- **`npm run build`'s type-check can walk `node_modules.claudey`.** The container's
-  Linux dependency tree isn't excluded from TypeScript's `**/*.ts` include glob by
-  default, so a build run from inside the container can fail on dependency source.
-  `tsconfig.json`'s `exclude` list covers `node_modules.claudey` and `.next.claudey`
-  explicitly — if a new container-only artifact dir shows up, add it there too.
 - **`NEXT_PUBLIC_WEB3FORMS_KEY`** is required for the contact form — it's injected
   as the Web3Forms `access_key` in the shared `components/contact/contact-form.tsx`
   (used by both the homepage `Contact` and `/freelance`'s `FreelanceContact`). Unlike
@@ -108,15 +109,6 @@ Conventions:
   `.env.local`.
 - **`NEXT_PUBLIC_GA_ID`** is optional — Google Analytics only mounts when it's set,
   so its absence in dev is expected, not a bug.
-
-## Documenting decisions
-
-This project keeps lightweight docs in sync with the code:
-
-- **`CONTEXT.md`** — the glossary / ubiquitous language. If you introduce or rename
-  a domain concept, update it.
-- **`docs/adr/`** — Architecture Decision Records (numbered). For a structural or
-  identity-level decision, add a new ADR rather than burying the rationale in code.
 
 ## Workflow expectations
 
