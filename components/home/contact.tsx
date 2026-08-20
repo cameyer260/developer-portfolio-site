@@ -31,7 +31,7 @@ export function Contact() {
       <SectionHeading
         command="./contact.sh"
         title="Get in touch"
-        description="Open to Summer 2027 SWE internships and freelance work. Drop a line."
+        description={`Open to ${profile.status.openTo}. Drop a line.`}
       />
 
       <div className="mt-10 grid gap-6 md:grid-cols-[0.85fr_1.15fr]">

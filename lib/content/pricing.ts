@@ -12,7 +12,7 @@ export type Offering = {
 export const offerings: readonly Offering[] = [
   {
     title: "Website",
-    price: "Starting at $499",
+    price: "Starting at $399",
     description:
       "A fast, professional website that makes it easy for people to find you and get in touch.",
     includes: [
