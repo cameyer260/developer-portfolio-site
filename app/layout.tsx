@@ -22,7 +22,7 @@ const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 const SITE_URL = "https://www.christophermeyer.dev";
 const DESCRIPTION =
-  "Christopher Meyer — software engineer building AI agents and full-stack products. CS student at SIUE, open to Summer 2027 internships and freelance work.";
+  "Christopher Meyer — software engineer building AI agents and full-stack products. CS student at SIUE, open to Winter/Spring, Summer & Fall 2027 internships and freelance work.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

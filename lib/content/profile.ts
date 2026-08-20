@@ -4,11 +4,11 @@ export const profile = {
   location: "Edwardsville, IL · St. Louis area",
 
   /** Typed in the hero. */
-  whoami: "Software engineer building practical, full-stack products.",
+  whoami: "Full-Stack Software Engineer",
 
   status: {
     current: "a CS student at SIUE",
-    openTo: "Summer 2027 SWE internships & freelance",
+    openTo: "Winter/Spring, Summer & Fall 2027 SWE internships & freelance",
   },
 
   email: "cameyer06@gmail.com",

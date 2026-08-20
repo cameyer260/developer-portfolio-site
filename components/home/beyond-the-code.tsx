@@ -13,7 +13,7 @@ export function BeyondTheCode() {
             <p>
               Outside of work I like to hang out with friends and stay active.
               I go to the gym regularly, bike, and run. I also really enjoy 
-              traveling, especially to outdoorsy places like national parks. 
+              traveling, especially to places like national parks. 
               When I&apos;m staying in, I like to read, watch movies, and listen
               to music.
             </p>
