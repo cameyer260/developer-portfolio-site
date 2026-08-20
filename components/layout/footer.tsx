@@ -14,11 +14,11 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 py-10 sm:flex-row sm:px-6">
-        <p className="font-mono text-xs text-muted">
+        <p className="font-mono text-sm text-muted">
           <span className="text-accent">$</span> © {new Date().getFullYear()}{" "}
           christopher meyer
         </p>
-        <div className="flex items-center gap-5 font-mono text-xs text-muted">
+        <div className="flex items-center gap-6 font-mono text-sm text-muted">
           {socials.map(({ label, href, icon: Icon }) => (
             <a
               key={label}
@@ -27,7 +27,7 @@ export function Footer() {
               rel={href.startsWith("http") ? "noreferrer" : undefined}
               className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
             >
-              <Icon className="size-3.5" />
+              <Icon className="size-4" />
               {label}
             </a>
           ))}

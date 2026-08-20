@@ -39,26 +39,26 @@ function RecommendationCard({
   } = recommendation;
 
   return (
-    <SpotlightCard className="flex h-full flex-col p-6 sm:p-7">
-      <p className="font-mono text-xs tracking-wide text-accent uppercase">
+    <SpotlightCard className="flex h-full flex-col p-6 sm:p-8">
+      <p className="font-mono text-xs font-semibold tracking-wider text-accent uppercase">
         {title}
       </p>
 
       <figure className="mt-4 flex flex-1 flex-col">
-        <blockquote className="text-lg leading-relaxed text-text/95">
+        <blockquote className="text-lg leading-relaxed text-text sm:text-xl">
           &ldquo;{quote}&rdquo;
         </blockquote>
 
-        <figcaption className="mt-6 flex items-center gap-3">
+        <figcaption className="mt-6 flex items-center gap-3.5">
           <span
             aria-hidden
-            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 font-mono text-sm font-medium text-accent"
+            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/15 font-mono text-sm font-bold text-accent"
           >
             {initialsFrom(name)}
           </span>
           <span className="flex flex-col">
-            <span className="font-medium text-text">{name}</span>
-            <span className="font-mono text-xs text-muted">
+            <span className="font-semibold text-text">{name}</span>
+            <span className="font-mono text-xs text-muted sm:text-sm">
               {role}, {company}
             </span>
             <span className="mt-0.5 font-mono text-xs text-muted">
@@ -69,31 +69,31 @@ function RecommendationCard({
       </figure>
 
       <details className="group mt-6 border-t border-border pt-4">
-        <summary className="cursor-pointer list-none font-mono text-sm text-muted transition-colors hover:text-text [&::-webkit-details-marker]:hidden">
+        <summary className="cursor-pointer list-none font-mono text-sm font-medium text-accent transition-colors hover:text-accent/80 [&::-webkit-details-marker]:hidden">
           <span className="inline-flex items-center gap-2">
             <span
               aria-hidden
-              className="text-accent transition-transform group-open:rotate-90"
+              className="font-bold transition-transform group-open:rotate-90"
             >
               ▸
             </span>
             Read full recommendation
           </span>
         </summary>
-        <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-text/85">
+        <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-text/90 sm:text-base">
           {fullQuote}
         </p>
       </details>
 
-      <div className="mt-4 font-mono text-sm">
+      <div className="mt-5 font-mono text-sm">
         <a
           href={url}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1 text-accent transition-colors hover:text-accent/80"
+          className="inline-flex items-center gap-1.5 font-medium text-accent transition-colors hover:text-accent/80 hover:underline"
         >
           View on LinkedIn
-          <ArrowUpRight className="size-3.5" />
+          <ArrowUpRight className="size-4" />
         </a>
       </div>
     </SpotlightCard>

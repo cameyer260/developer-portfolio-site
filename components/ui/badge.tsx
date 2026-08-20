@@ -3,13 +3,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-xs font-medium whitespace-nowrap [&>svg]:size-3",
+  "inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1 font-mono text-xs font-semibold whitespace-nowrap tracking-wide [&>svg]:size-3",
   {
     variants: {
       variant: {
         // Amber status pill — "open to internships", "Most Popular"
-        accent: "border-accent/30 bg-accent/10 text-accent",
-        muted: "border-border bg-surface-2 text-muted",
+        accent: "border-accent/40 bg-accent/15 text-accent shadow-[0_0_12px_-3px_rgba(245,158,11,0.25)]",
+        muted: "border-border bg-surface-2 text-text/80",
       },
     },
     defaultVariants: {

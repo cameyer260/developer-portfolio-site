@@ -16,22 +16,23 @@ export type Project = {
 export const projects: readonly Project[] = [
   {
     name: "Site Builder",
-    tagline: "Autonomous Agent CLI",
+    tagline: "CLI tool that builds and deploys prototype sites",
     date: "Jun 2026",
     tech: ["TypeScript", "Bun", "Claude", "Astro", "Cloudflare Pages", "Playwright"],
     links: {
       code: "https://github.com/cameyer260/site-builder",
     },
     bullets: [
-      "Single command turns a URL into a deployed prototype for outreach.",
-      "Six-stage agent pipeline: init → ingest → synthesize → generate → audit → deploy.",
-      "axe-core + Lighthouse quality gating, shipped to Cloudflare Pages.",
+      "CLI tool that builds and deploys prototype sites for prospective clients.",
+      "Takes a prospective client’s URL, documents, or notes and returns a working, deployed prototype website in under 20 minutes.",
+      "Gates on site quality through an agentic review/fix pass, plus passing accessibility and Lighthouse score metrics.",
+      "Returns a live URL on Cloudflare Pages, making client outreach seamless.",
     ],
     featured: true,
   },
   {
     name: "StafferAI",
-    tagline: "Multi-Tenant AI Knowledge Platform",
+    tagline: "Multi-Tenant RAG Application",
     date: "Mar 2026",
     tech: ["Next.js", "OpenAI", "Supabase", "pgvector", "Stripe"],
     links: {
@@ -39,7 +40,7 @@ export const projects: readonly Project[] = [
       code: "https://github.com/cameyer260/stafferai-public",
     },
     bullets: [
-      "Production multi-tenant RAG with grounded citations.",
+      "Production, multi-tenant AI knowledge platform enabling teams to query internal documents with source-grounded responses and citations.",
       "Org-scoped pgvector retrieval over Supabase Auth, RLS and RBAC.",
       "Ingestion pipeline, Stripe subscriptions and per-tenant rate limiting.",
     ],
@@ -54,7 +55,7 @@ export const projects: readonly Project[] = [
       code: "https://github.com/cameyer260/skillsphere",
     },
     bullets: [
-      "Real-time multiplayer with live lobbies over WebSockets.",
+      "Real-time multiplayer games platform with live lobbies over WebSockets.",
       "Responsive Next.js frontend with a Supabase backend and auth.",
     ],
   },

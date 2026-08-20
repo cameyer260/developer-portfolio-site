@@ -36,21 +36,23 @@ export function Contact() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-[0.85fr_1.15fr]">
         <Reveal>
-          <div className="flex h-full flex-col justify-center gap-4 rounded-xl border border-border bg-surface p-6 sm:p-7">
+          <div className="flex h-full flex-col justify-center gap-4 rounded-xl border border-border bg-surface p-6 sm:p-8">
             {channels.map(({ icon: Icon, label, value, href }) => (
               <a
                 key={label}
                 href={href}
                 target={href.startsWith("http") ? "_blank" : undefined}
                 rel={href.startsWith("http") ? "noreferrer" : undefined}
-                className="group flex items-center gap-3 font-mono text-sm"
+                className="group flex items-center gap-3.5 font-mono text-sm"
               >
-                <span className="grid size-9 shrink-0 place-items-center rounded-md border border-border bg-surface-2 text-muted transition-colors group-hover:text-accent">
+                <span className="grid size-10 shrink-0 place-items-center rounded-lg border border-border bg-surface-2 text-muted transition-colors group-hover:border-accent/40 group-hover:text-accent">
                   <Icon className="size-4" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-xs text-muted">{label}</span>
-                  <span className="block truncate text-text transition-colors group-hover:text-accent">
+                  <span className="block font-mono text-xs font-medium uppercase tracking-wider text-muted">
+                    {label}
+                  </span>
+                  <span className="block truncate font-mono text-sm font-medium text-text transition-colors group-hover:text-accent sm:text-base">
                     {value}
                   </span>
                 </span>

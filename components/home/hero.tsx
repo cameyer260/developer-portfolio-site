@@ -32,13 +32,13 @@ export function Hero() {
         <div className="mt-6 font-mono text-lg sm:text-2xl">
           <span className="text-muted">$ whoami</span>
           <div className="mt-2 flex">
-            <span className="mr-2 text-accent">→</span>
-            <Typewriter text={profile.whoami} className="text-text" />
+            <span className="mr-2 font-bold text-accent">→</span>
+            <Typewriter text={profile.whoami} className="font-semibold text-text" />
           </div>
         </div>
 
         <Reveal delay={0.1}>
-          <p className="mt-6 max-w-xl text-muted">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             Currently {profile.status.current}, based in {profile.location}.
           </p>
         </Reveal>
@@ -53,7 +53,7 @@ export function Hero() {
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link href="/freelance">
-                <Globe /> [ need a website? ]
+                <Globe /> [ freelance software development ]
               </Link>
             </Button>
           </div>

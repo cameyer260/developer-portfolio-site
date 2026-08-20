@@ -15,20 +15,20 @@ export function Experience() {
           <Reveal as="li" key={role.company} delay={i * 0.06} className="relative">
             <span
               aria-hidden
-              className="absolute top-1.5 -left-[1.6rem] size-2.5 rounded-full bg-accent ring-4 ring-bg sm:-left-[2.1rem]"
+              className="absolute top-1.5 -left-[1.6rem] size-3 rounded-full bg-accent ring-4 ring-bg sm:-left-[2.15rem]"
             />
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h3 className="text-lg font-semibold">
+              <h3 className="text-xl font-bold text-text">
                 {role.title}{" "}
-                <span className="text-accent">@ {role.company}</span>
+                <span className="font-semibold text-accent">@ {role.company}</span>
               </h3>
-              <span className="font-mono text-xs text-muted">{role.period}</span>
+              <span className="font-mono text-xs text-muted sm:text-sm">{role.period}</span>
             </div>
-            <p className="mt-0.5 font-mono text-xs text-muted">{role.location}</p>
-            <ul className="mt-3 space-y-2 text-sm text-text/85">
+            <p className="mt-0.5 font-mono text-xs text-muted sm:text-sm">{role.location}</p>
+            <ul className="mt-4 space-y-2.5 text-[15px] leading-relaxed text-text/90 sm:text-base">
               {role.bullets.map((bullet) => (
-                <li key={bullet} className="flex gap-2.5">
-                  <span aria-hidden className="mt-1 text-accent">
+                <li key={bullet} className="flex items-start gap-2.5">
+                  <span aria-hidden className="mt-1 font-bold text-accent">
                     ▸
                   </span>
                   <span>{bullet}</span>

@@ -19,21 +19,23 @@ export function EducationResume() {
         <SpotlightCard className="p-6 sm:p-8">
           <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
             <div>
-              <h3 className="text-lg font-semibold">{education.school}</h3>
-              <p className="mt-1 font-mono text-sm text-accent">
+              <h3 className="text-xl font-bold text-text">{education.school}</h3>
+              <p className="mt-1 font-mono text-base font-semibold text-accent">
                 {education.degree}
               </p>
-              <p className="mt-1 text-sm text-muted">
+              <p className="mt-1 text-sm text-muted sm:text-base">
                 {education.location} · GPA {education.gpa}
               </p>
             </div>
-            <span className="font-mono text-xs text-muted">
+            <span className="font-mono text-xs text-muted sm:text-sm">
               {education.period}
             </span>
           </div>
 
           <div className="mt-6">
-            <p className="font-mono text-xs text-muted">scholarships</p>
+            <p className="font-mono text-xs font-medium uppercase tracking-wider text-muted">
+              scholarships
+            </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {education.scholarships.map((s) => (
                 <Tag key={s}>{s}</Tag>
@@ -42,7 +44,9 @@ export function EducationResume() {
           </div>
 
           <div className="mt-5">
-            <p className="font-mono text-xs text-muted">relevant coursework</p>
+            <p className="font-mono text-xs font-medium uppercase tracking-wider text-muted">
+              relevant coursework
+            </p>
             <div className="mt-2 flex flex-wrap gap-2">
               {education.coursework.map((c) => (
                 <Tag key={c}>{c}</Tag>
@@ -50,15 +54,15 @@ export function EducationResume() {
             </div>
           </div>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Button asChild>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="default">
               <a href={profile.resume} download>
-                <Download /> Download résumé
+                <Download className="size-4" /> Download résumé
               </a>
             </Button>
-            <Button asChild variant="outline">
+            <Button asChild variant="outline" size="default">
               <a href={profile.resume} target="_blank" rel="noreferrer">
-                <ExternalLink /> Open PDF
+                <ExternalLink className="size-4" /> Open PDF
               </a>
             </Button>
           </div>

@@ -16,12 +16,12 @@ export function Skills() {
           <Reveal
             key={group.label}
             delay={i * 0.06}
-            className="grid gap-3 py-5 first:pt-0 sm:grid-cols-[180px_1fr] sm:gap-6"
+            className="grid gap-3 py-6 first:pt-0 sm:grid-cols-[180px_1fr] sm:gap-6"
           >
-            <p className="font-mono text-sm text-muted">{group.label}</p>
-            <div className="flex flex-wrap gap-2">
+            <p className="font-mono text-sm font-semibold text-accent sm:text-base">{group.label}</p>
+            <div className="flex flex-wrap gap-2.5">
               {group.items.map((item) => (
-                <Tag key={item} className="px-2.5 py-1 text-sm text-text/90">
+                <Tag key={item} className="px-3 py-1.5 text-sm text-text">
                   {item}
                 </Tag>
               ))}

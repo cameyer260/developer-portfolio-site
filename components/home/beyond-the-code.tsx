@@ -8,8 +8,8 @@ export function BeyondTheCode() {
 
       <Reveal delay={0.08}>
         <div className="mt-8 max-w-2xl">
-          <p className="font-mono text-sm text-accent">&gt; cat beyond.md</p>
-          <div className="mt-4 space-y-4 text-text/90">
+          <p className="font-mono text-sm font-semibold text-accent">&gt; cat beyond.md</p>
+          <div className="mt-4 space-y-4 text-lg leading-relaxed text-text/90">
             <p>
               Outside of work I like to hang out with friends and stay active.
               I go to the gym regularly, bike, and run. I also really enjoy 

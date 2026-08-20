@@ -10,7 +10,7 @@ type Web3FormsResponse = { success: boolean };
 const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
 const inputClass =
-  "w-full rounded-lg border border-border bg-surface-2 px-3.5 py-2.5 text-sm text-text placeholder:text-muted/70 outline-none transition-colors focus:border-accent/50 focus:ring-2 focus:ring-accent/20";
+  "w-full rounded-lg border border-border bg-surface-2 px-4 py-3 text-base text-text placeholder:text-muted/60 outline-none transition-colors focus:border-accent/60 focus:ring-2 focus:ring-accent/20";
 
 interface ContactFormProps {
   /** Placeholder text for the message textarea. */
@@ -77,7 +77,7 @@ export function ContactForm({
       <div>
         <label
           htmlFor={`${formId}-name`}
-          className="mb-1.5 block font-mono text-xs text-muted"
+          className="mb-1.5 block font-mono text-xs font-semibold uppercase tracking-wider text-muted"
         >
           name
         </label>
@@ -94,7 +94,7 @@ export function ContactForm({
       <div>
         <label
           htmlFor={`${formId}-email`}
-          className="mb-1.5 block font-mono text-xs text-muted"
+          className="mb-1.5 block font-mono text-xs font-semibold uppercase tracking-wider text-muted"
         >
           email
         </label>
@@ -111,7 +111,7 @@ export function ContactForm({
       <div className="sm:col-span-2">
         <label
           htmlFor={`${formId}-message`}
-          className="mb-1.5 block font-mono text-xs text-muted"
+          className="mb-1.5 block font-mono text-xs font-semibold uppercase tracking-wider text-muted"
         >
           message
         </label>
@@ -127,17 +127,17 @@ export function ContactForm({
       <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
 
       <div className="flex items-center justify-between gap-4 sm:col-span-2">
-        <p className="text-xs text-muted">
+        <p className="text-sm text-muted">
           or email{" "}
           <a
             href={`mailto:${profile.email}`}
-            className="text-accent hover:underline"
+            className="font-medium text-accent underline-offset-2 hover:underline"
           >
             directly
           </a>
         </p>
         <Button type="submit" disabled={loading}>
-          {loading ? "Sending…" : "Send"} <ArrowRight />
+          {loading ? "Sending…" : "Send"} <ArrowRight className="size-4" />
         </Button>
       </div>
 

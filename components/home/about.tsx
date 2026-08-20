@@ -48,9 +48,12 @@ export function About() {
                 and maintain websites, and I am open to working with more! I can
                 build websites, applications, internal software tooling, APIs, etc.
                 If you are
-                someone looking for a developer—be that for a website or to help
+                looking for a developer—be that for a website or to help
                 replace an internal software tool or system that you are frustrated
-                with—feel free to reach out! Working with me, you get a tool
+                with—feel free to{" "}
+                <a href="#contact" className="font-medium text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent">{" "}
+                  reach out!{" "}
+                </a> Working with me, you get a tool
                 built to do exactly what you want. No signing up, managing, and
                 wrangling a generic product—I build it, host it, and maintain it
                 for you, so all you have to do is use it.

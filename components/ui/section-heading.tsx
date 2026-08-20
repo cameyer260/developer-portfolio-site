@@ -17,14 +17,16 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <Reveal className={cn("max-w-2xl", className)}>
-      <p className="font-mono text-sm text-accent">
-        <span className="text-muted">$</span> {command}
+      <p className="font-mono text-sm font-semibold text-accent">
+        <span className="text-muted/80">$</span> {command}
       </p>
-      <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+      <h2 className="mt-2.5 text-2xl font-bold tracking-tight text-text sm:text-3xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 text-muted">{description}</p>
+        <p className="mt-3 text-base text-muted leading-relaxed sm:text-lg">
+          {description}
+        </p>
       ) : null}
     </Reveal>
   );

@@ -6,14 +6,14 @@
 
 @theme {
   /* Color tokens (warm-dark + amber) */
-  --color-bg: #17130e; /* page base — warm charcoal, NOT black */
-  --color-surface: #1f1a12; /* cards / raised surfaces */
-  --color-surface-2: #262019; /* nested surfaces, inputs */
-  --color-text: #f5efe6; /* primary text — warm off-white */
-  --color-muted: #8a7e6e; /* secondary text, labels */
+  --color-bg: #14110d; /* page base — warm charcoal, NOT black */
+  --color-surface: #201a14; /* cards / raised surfaces */
+  --color-surface-2: #2b231b; /* nested surfaces, inputs, chips */
+  --color-text: #faf5ee; /* primary text — crisp warm off-white */
+  --color-muted: #b5a898; /* secondary text, labels — WCAG AA compliant */
   --color-accent: #f59e0b; /* amber signature — links, CTAs, prompt */
-  --color-accent-2: #e8703a; /* burnt orange — used sparingly */
-  --color-border: rgba(245, 239, 230, 0.08); /* hairline borders */
+  --color-accent-2: #ea7a3e; /* burnt orange — used sparingly */
+  --color-border: rgba(245, 239, 230, 0.12); /* hairline borders */
 
   /* Typography (wired in layout.tsx via next/font) */
   --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;

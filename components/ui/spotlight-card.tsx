@@ -36,7 +36,7 @@ export function SpotlightCard({
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
       className={cn(
-        "relative overflow-hidden rounded-2xl transition-colors duration-300 hover:border-accent/25",
+        "relative overflow-hidden rounded-2xl shadow-sm transition-all duration-300 hover:border-accent/35 hover:shadow-[0_4px_24px_-4px_rgba(0,0,0,0.5)]",
         surfaceClassName,
         className,
       )}
@@ -46,7 +46,7 @@ export function SpotlightCard({
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 motion-reduce:hidden"
         style={{
           opacity,
-          background: `radial-gradient(540px circle at ${position.x}px ${position.y}px, rgba(245,158,11,0.10), transparent 40%)`,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(245,158,11,0.12), transparent 45%)`,
         }}
       />
       {children}

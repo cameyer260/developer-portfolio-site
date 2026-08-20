@@ -15,15 +15,15 @@ export function Faq() {
         description="Common questions before reaching out."
       />
 
-      <div className="mt-10 max-w-3xl space-y-3">
+      <div className="mt-10 max-w-3xl space-y-3.5">
         {faq.map((item, i) => (
           <Reveal key={item.question} delay={i * 0.05}>
-            <details className="group rounded-xl border border-border bg-surface p-5 open:border-accent/30 sm:p-6">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium text-text marker:content-none">
+            <details className="group rounded-xl border border-border bg-surface p-5 transition-colors open:border-accent/40 sm:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-text marker:content-none sm:text-lg">
                 {item.question}
-                <ChevronDown className="size-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180 group-open:text-accent" />
+                <ChevronDown className="size-5 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180 group-open:text-accent" />
               </summary>
-              <p className="mt-3 text-sm text-muted">{item.answer}</p>
+              <p className="mt-3.5 text-base leading-relaxed text-text/85">{item.answer}</p>
             </details>
           </Reveal>
         ))}

@@ -29,13 +29,13 @@ export function FreelanceHero() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h1 className="mt-6 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="mt-6 max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl">
             Fast, modern websites for local businesses.
           </h1>
         </Reveal>
 
         <Reveal delay={0.15}>
-          <p className="mt-5 max-w-xl text-muted">
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
             I design, build, and deploy custom websites and software for local
             businesses around Edwardsville and the St. Louis area — end-to-end,
             built to load fast and bring in customers.

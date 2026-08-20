@@ -52,24 +52,24 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
     testimonial;
 
   return (
-    <SpotlightCard className="flex h-full flex-col p-6 sm:p-7">
+    <SpotlightCard className="flex h-full flex-col p-6 sm:p-8">
       <StarRating rating={rating} />
 
       <figure className="mt-5 flex flex-1 flex-col">
-        <blockquote className="text-lg leading-relaxed text-text/95">
+        <blockquote className="text-lg leading-relaxed text-text sm:text-xl">
           &ldquo;{quote}&rdquo;
         </blockquote>
 
-        <figcaption className="mt-6 flex items-center gap-3">
+        <figcaption className="mt-6 flex items-center gap-3.5">
           <span
             aria-hidden
-            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 font-mono text-sm font-medium text-accent"
+            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-accent/40 bg-accent/15 font-mono text-sm font-bold text-accent"
           >
             {initialsFrom(name)}
           </span>
           <span className="flex flex-col">
-            <span className="font-medium text-text">{name}</span>
-            <span className="font-mono text-xs text-muted">
+            <span className="font-semibold text-text">{name}</span>
+            <span className="font-mono text-xs text-muted sm:text-sm">
               {role} · {company}
             </span>
           </span>
@@ -83,10 +83,10 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
             href={companyUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1 text-accent transition-colors hover:text-accent/80"
+            className="inline-flex items-center gap-1 font-medium text-accent transition-colors hover:text-accent/80 hover:underline"
           >
             {displayHost(companyUrl)}
-            <ArrowUpRight className="size-3.5" />
+            <ArrowUpRight className="size-4" />
           </a>
         ) : null}
       </div>

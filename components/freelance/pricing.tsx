@@ -17,10 +17,10 @@ const CONTACT_HREF = "#freelance-contact";
 
 function IncludesList({ items }: { items: readonly string[] }) {
   return (
-    <ul className="space-y-2.5 text-sm text-text/85">
+    <ul className="space-y-3 text-[15px] leading-relaxed text-text/90 sm:text-base">
       {items.map((item) => (
-        <li key={item} className="flex gap-2.5">
-          <Check className="mt-0.5 size-4 shrink-0 text-accent" />
+        <li key={item} className="flex items-start gap-2.5">
+          <Check className="mt-1 size-4 shrink-0 text-accent font-bold" />
           <span>{item}</span>
         </li>
       ))}
@@ -30,17 +30,21 @@ function IncludesList({ items }: { items: readonly string[] }) {
 
 function OfferingCard({ offering }: { offering: Offering }) {
   return (
-    <SpotlightCard className="flex h-full flex-col p-6 sm:p-7">
-      <h3 className="text-lg font-semibold">{offering.title}</h3>
-      <p className="mt-3 font-mono text-xl text-accent">{offering.price}</p>
-      <p className="mt-3 text-sm text-muted">{offering.description}</p>
+    <SpotlightCard className="flex h-full flex-col p-6 sm:p-8">
+      <h3 className="text-xl font-bold text-text">{offering.title}</h3>
+      <p className="mt-3 font-mono text-2xl font-bold text-accent sm:text-3xl">
+        {offering.price}
+      </p>
+      <p className="mt-3 text-base leading-relaxed text-muted">
+        {offering.description}
+      </p>
 
       <div className="mt-6 flex-1">
         <IncludesList items={offering.includes} />
       </div>
 
       {offering.note ? (
-        <p className="mt-5 text-xs text-muted italic">{offering.note}</p>
+        <p className="mt-5 text-sm text-muted/80 italic">{offering.note}</p>
       ) : null}
 
       <Button asChild className="mt-7 w-full">
@@ -54,8 +58,8 @@ function SupportTierCard({ tier }: { tier: SupportTier }) {
   return (
     <SpotlightCard
       className={cn(
-        "flex h-full flex-col p-6 sm:p-7",
-        tier.popular && "border-accent/40",
+        "flex h-full flex-col p-6 sm:p-8",
+        tier.popular && "border-accent/40 shadow-[0_0_24px_-8px_rgba(245,158,11,0.25)]",
       )}
       surfaceClassName={cn(
         "bg-surface border border-border",
@@ -63,11 +67,15 @@ function SupportTierCard({ tier }: { tier: SupportTier }) {
       )}
     >
       <div className="flex items-center justify-between gap-3">
-        <h3 className="text-lg font-semibold">{tier.title}</h3>
-        {tier.popular ? <Badge>Recommended</Badge> : null}
+        <h3 className="text-xl font-bold text-text">{tier.title}</h3>
+        {tier.popular ? <Badge variant="accent">Recommended</Badge> : null}
       </div>
-      <p className="mt-3 font-mono text-xl text-accent">{tier.price}</p>
-      <p className="mt-3 text-sm text-muted">{tier.description}</p>
+      <p className="mt-3 font-mono text-2xl font-bold text-accent sm:text-3xl">
+        {tier.price}
+      </p>
+      <p className="mt-3 text-base leading-relaxed text-muted">
+        {tier.description}
+      </p>
 
       <div className="mt-6 flex-1">
         <IncludesList items={tier.includes} />
