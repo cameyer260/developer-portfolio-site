@@ -15,6 +15,10 @@
 # misc
 .DS_Store
 
+# pi / agent tooling
+.pi/
+.playwright-cli/
+
 # env files
 .env*
 
