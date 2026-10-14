@@ -2,8 +2,8 @@
 
 My personal developer portfolio, showcasing myself as a full-stack software engineer, 
 including my skills, experience, and projects. The site includes a two-way funnel to 
-the two opportunities I am currently interested in: a Winter/Spring, Summer, or Fall 
-of 2027 software engineering internship and freelance software development work. So 
+the two opportunities I am currently interested in: a Summer or Fall 
+of 2027 software engineering internship (not Winter/Spring 2027) and freelance software development work. So 
 the two primary viewers for this site will recruiters and small business owners/managers. 
 Hence the reason for having my general home page and a seperate `/freelance` page. It is
 a simple static Next.js site that is hosted on Vercel.
@@ -97,4 +97,10 @@ Deployed on Vercel. Pushes to `main` deploy to production at
 ## For AI agents / contributors
 
 Conventions, architecture details, and gotchas are documented in
-[`AGENTS.md`](./AGENTS.md). Read it before making changes.
+[`AGENTS.md`](./AGENTS.md). Read it before making changes. Product behavior and
+architecture live in [`docs/PRD.md`](./docs/PRD.md) and
+[`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
+
+> **[Planned]** A rewrite to a static HTML/CSS/JS + htmx site on Cloudflare Pages is
+> in progress — see [`docs/changes/static-site-rewrite.md`](./docs/changes/static-site-rewrite.md).
+> This README describes the current Next.js site until that lands.

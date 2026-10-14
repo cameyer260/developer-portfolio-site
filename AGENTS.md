@@ -7,8 +7,8 @@ making changes. For human-oriented setup, see [`README.md`](./README.md).
 
 My personal developer portfolio, showcasing myself as a full-stack software engineer, 
 including my skills, experience, and projects. The site includes a two-way funnel to 
-the two opportunities I am currently interested in: a Winter/Spring, Summer, or Fall 
-of 2027 software engineering internship and freelance software development work. So 
+the two opportunities I am currently interested in: a Summer or Fall 
+of 2027 software engineering internship (not Winter/Spring 2027) and freelance software development work. So 
 the two primary viewers for this site will recruiters and small business owners/managers. 
 Hence the reason for having my general home page and a seperate `/freelance` page. It is
 a simple static Next.js site that is hosted on Vercel.
@@ -16,6 +16,20 @@ a simple static Next.js site that is hosted on Vercel.
 The visual identity is a **warm-dark, terminal-soul** aesthetic — a modern site
 with terminal *flavor* (typewriter `whoami`, blinking cursor, amber prompt accents),
 not a literal terminal UI.
+
+> **[Planned] rewrite in progress.** The site is moving to hand-written static HTML,
+> plain CSS/JS and htmx on Cloudflare Pages, with a redesign. Everything below
+> describes the current Next.js site until that lands. Implementation plan:
+> [`docs/changes/static-site-rewrite.md`](./docs/changes/static-site-rewrite.md).
+
+## Docs map
+
+| Doc | What it covers |
+| --- | --- |
+| [`README.md`](./README.md) | Human-oriented overview and setup |
+| [`docs/PRD.md`](./docs/PRD.md) | Behavior: audiences, pages, sections, contact form |
+| [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) | Structure, hosting, and "Decisions and why" |
+| `docs/changes/*.md` | Temporary plans for in-flight changes; deleted when done |
 
 ## Tech stack
 
@@ -84,7 +98,8 @@ Conventions:
 - Use the semantic color tokens (`bg`, `surface`, `text`, `muted`, `accent`,
   `accent-2`, `border`) rather than raw hex. The palette is warm-dark, **not
   black** — don't introduce cool greys or pure `#000`.
-- Visual identity is "terminal *soul*", not a literal terminal (ADR 0002). Terminal
+- Visual identity is "terminal *soul*", not a literal terminal (see "Decisions and
+  why" in [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)). Terminal
   is flavor (mono type, prompt motifs, amber accents, signature motion) — don't
   build a navigable terminal UI.
 - Respect `prefers-reduced-motion`: motion components already gate on it (see
@@ -101,6 +116,13 @@ Conventions:
 
 ## Gotchas — read these
 
+- **Internship availability is Summer & Fall 2027 only, not Winter/Spring 2027.**
+  The current site copy is stale and still says "Winter/Spring, Summer & Fall 2027" in
+  `lib/content/profile.ts` (`status.openTo`), `components/home/about.tsx` and
+  `app/layout.tsx` (`DESCRIPTION`). Never copy that wording into new copy or the
+  rewrite. See "Availability wording" in
+  [`docs/changes/static-site-rewrite.md`](./docs/changes/static-site-rewrite.md).
+
 - **`NEXT_PUBLIC_WEB3FORMS_KEY`** is required for the contact form — it's injected
   as the Web3Forms `access_key` in the shared `components/contact/contact-form.tsx`
   (used by both the homepage `Contact` and `/freelance`'s `FreelanceContact`). Unlike
@@ -115,4 +137,21 @@ Conventions:
 - Match the surrounding code style: typed, concise, comments only where they earn
   their place (the existing files are a good reference).
 - Don't commit or push unless asked. If asked and on `main`, branch first.
+- **Never deploy.** All development is local. Don't run `wrangler deploy` or
+  `wrangler pages deploy`, don't create or configure Cloudflare or Vercel projects,
+  and don't touch DNS. The owner reviews locally and handles every deployment.
 - Before finishing a change, run `npm run lint` and `npm run build`.
+
+## Documentation rules
+
+**Definition of done.** A task is not done until ALL of these are true:
+1. It is fully implemented in the repo and works (tests/verification pass).
+2. The docs describe what was actually built, accurately.
+3. The docs no longer describe it as planned: every `[Planned]` marker for it is removed entirely (built things carry no marker; the docs read as normal docs), and any planned-change wording is rewritten as plain present tense.
+
+Docs are the primary way humans understand this project, because humans do not read the code. Update docs in the same change as the code.
+- `PRD.md` describes behavior. `ARCHITECTURE.md` describes structure. If someone would otherwise need to open the code to learn it, document it.
+- Prefer updating an existing doc over creating a new one. Don't duplicate content across docs; link instead.
+- Create new docs when the project needs them and add them to the Docs map in AGENTS.md.
+- If you discover a doc is wrong or stale, fix it.
+- Record decisions and their reasons in the "Decisions and why" section of ARCHITECTURE.md. Do not create separate ADR files.
