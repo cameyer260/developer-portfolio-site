@@ -586,7 +586,72 @@
     }
   }
 
-  /* ---------- Home: experience timeline ---------- */
+  /* ---------- Home: experience ---------- */
+
+  .experience {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .role {
+    display: grid;
+    gap: var(--space-6);
+    padding: clamp(1.25rem, 0.75rem + 2vw, 3rem);
+    border-inline-start: 3px solid var(--color-border-strong);
+  }
+
+  .role--featured {
+    border-color: var(--color-accent-line);
+    border-inline-start-color: var(--color-accent);
+  }
+
+  .role__header {
+    display: grid;
+    align-content: start;
+    gap: var(--space-2);
+  }
+
+  .role__company {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .role__title {
+    max-width: 20ch;
+    font-family: var(--font-sans);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+  }
+
+  .role__period,
+  .role__location {
+    color: var(--color-muted);
+    font-size: var(--text-sm);
+  }
+
+  .role__period {
+    margin-top: var(--space-3);
+    font-family: var(--font-mono);
+  }
+
+  .role__bullets {
+    align-content: start;
+    gap: var(--space-4);
+    max-width: 70ch;
+    color: var(--color-text-soft);
+  }
+
+  @media (width >= 64rem) {
+    .role {
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+      gap: var(--space-8);
+    }
+  }
+
+  /* ---------- Home: My Journey ---------- */
 
   .timeline {
     display: grid;

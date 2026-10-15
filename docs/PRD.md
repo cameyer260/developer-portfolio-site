@@ -52,31 +52,37 @@ In order:
    StafferAI and a single Procks dashed WIP card beside each other on wider
    screens. Procks appears once; its timeline story, freelance card and
    public-information restrictions are unchanged.
-4. **Experience (`#experience`):** five brief first-person yearly entries,
+4. **Experience (`#experience`):** two substantial role cards with visible titles,
+   organizations, dates, Remote locations and full accomplishment bullets:
+   Software Engineer Intern at Zipper (Mar–Aug 2026), then Freelance Software
+   Developer / Self-Employed (2025–Present). Zipper has the strongest amber accent.
+   Desktop pairs role metadata with the bullets; smaller screens stack them.
+   The header's experience link lands here, not on the journey.
+5. **Recommendations (`#recommendations`):** Kerry Ritter, Zipper co-founder;
+   excerpt, attribution, LinkedIn link and native “Read full recommendation” details.
+6. **My Journey (`#journey`):** five brief first-person yearly entries,
    2022–2026, oldest first, with scroll reveals. Desktop has a sticky
    heading/year aside and a progressively filled rail where supported; phones use
    a compact single column. The year is decorative, fully painted at rest and
    during transitions, and not repeated screen-reader content. Future
-   illustrations have room in the aside but are not included. The timeline stays
-   separate from education/resume; see the yearly coverage below.
-5. **Recommendations (`#recommendations`):** Kerry Ritter, Zipper co-founder;
-   excerpt, attribution, LinkedIn link and native “Read full recommendation” details.
-6. **Skills (`#skills`):** Languages, Frameworks & Tech, Tools in numbered panes.
+   illustrations have room in the aside but are not included. Professional
+   milestones remain in the story without replacing the Experience cards.
 7. **Education & Resume (`#education`):** SIUE B.S. Computer Science, Mathematics
    minor, GPA, scholarships, coursework, download and open-PDF links. Separate
-   from the timeline.
-8. **Beyond the Code (`#beyond`):** activities, travel and interests.
-9. **Contact (`#contact`):** email, intentional Google Voice phone, GitHub,
-   LinkedIn and the contact form.
+   from the journey and professional experience.
+8. **Skills (`#skills`):** Languages, Frameworks & Tech, Tools in a compact
+   label-plus-wrapping-list presentation covering all 24 skill names and three
+   categories, with nothing hidden behind an interaction.
+9. **Beyond the Code (`#beyond`):** activities, travel and interests.
+10. **Contact (`#contact`):** email, intentional Google Voice phone, GitHub,
+    LinkedIn and the contact form.
 
-Education & Resume precedes Skills in DOM/reading order, yielding
-Recommendations → Education & Resume → Skills → Beyond the Code → Contact.
-Displayed section indices are Education `04`, Skills `05`. Skills uses a compact
-label-plus-wrapping-list presentation covering all 24 skill names and three
-categories, with nothing hidden behind an interaction. Existing section anchors
-and education/resume content are unchanged.
+DOM/reading order is Featured Work → Experience → Recommendations → My Journey →
+Education & Resume → Skills → Beyond the Code → Contact, with displayed section
+indices `01`–`08`. Education/resume content and existing navigation targets are
+unchanged; `#journey` is the timeline's own anchor.
 
-### Yearly timeline
+### My Journey yearly timeline
 
 Exactly one concise first-person entry per year. The 2025 entry carries the
 freelance practice's `2025 – Present` wording; project links stay inline.

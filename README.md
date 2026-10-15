@@ -11,7 +11,9 @@ text and IBM Plex Mono labels.
 ## Run locally
 
 Use a current Node.js release supported by Wrangler (Node 22+ recommended) and npm
-for `npx`. There are no project dependencies to install and no build step.
+for `npx`. Node runs the local Wrangler tool, not the site. There are no project
+dependencies to install and no build step. `npx` can use npm's external cache;
+do not run `npm install` or create a root package manifest for local serving.
 
 ```bash
 npx wrangler pages dev site --port 8788 --ip 127.0.0.1 --compatibility-date=2026-06-01
@@ -24,7 +26,9 @@ Wrangler/bundled-runtime date mismatch. Serve over HTTP, not `file://`.
 
 Wrangler emulates Pages' clean URLs, custom 404 and `_headers`. Restart it if you
 create `_headers` after startup. A generic static server is not equivalent for
-route/header verification.
+route/header verification. If switching Wrangler versions produces a local
+SQLite-state error, append `--persist-to .pi/tmp/wrangler-state` to use fresh,
+gitignored local state without deleting the existing `.wrangler/` directory.
 
 ### Configuration
 

@@ -1,4 +1,4 @@
-// Experience timeline: the big year in the sticky aside (desktop only, purely
+// Journey timeline: the big year in the sticky aside (desktop only, purely
 // decorative and aria-hidden) follows the entry at the middle of the viewport.
 import { reduceMotion, select } from "/js/dom.js";
 

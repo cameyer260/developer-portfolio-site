@@ -88,8 +88,10 @@ manifest or install the removed framework to satisfy stale instructions.**
 - PlaySkillSphere appears in the 2025 timeline entry and the freelance
   personal-project section, with GitHub links; its homepage card was replaced by
   Procks. Its dead live-site links were removed by owner decision; do not re-add them.
-- Keep the experience timeline separate from education/resume. Future timeline
-  illustrations belong in the desktop aside; they are not implemented.
+- Experience (`#experience`) has dedicated Zipper and freelance role cards before
+  Recommendations. My Journey (`#journey`) is the annual timeline that follows;
+  keep both separate from education/resume. Future timeline illustrations belong
+  in the desktop aside; they are not implemented.
 - Footer year uses **`data-current-year`**; `data-year` belongs to timeline entries.
   A generic year selector previously wiped timeline content.
 - The public Web3Forms key is inlined in both forms; there is no runtime env

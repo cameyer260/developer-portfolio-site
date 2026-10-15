@@ -88,6 +88,12 @@ Localized refinements keep these primitives and the visual identity:
 - Homepage-scoped WIP rules put Procks beside StafferAI while Site Builder keeps
   its featured span and the shared Procks markup stays byte-identical. The base
   `.project--wip` full-width treatment is retained for the freelance page only.
+- Experience uses two stacked `.role` cards in an `.experience` ordered list.
+  At 64rem, each card pairs a metadata column with full accomplishment bullets;
+  below that, it stacks in reading order. `.role--featured` gives Zipper a stronger
+  amber border. Roles reuse the existing card, ticks, reveal and semantic tokens,
+  without new JavaScript or hidden detail. Titles, dates, locations and bullets
+  are restored from the original role content on `main`.
 - Education precedes Skills in HTML, not just visual order. Skills uses scoped
   section/header spacing and a label-plus-wrapping-list layout; global section
   spacing is untouched.
@@ -160,7 +166,8 @@ top-level element, not necessarily main or body.
 **Footer hook is `data-current-year`.** Timeline entries use `data-year`; a generic
 year updater would overwrite their entire contents.
 
-The timeline holds five `.tl__item` elements with `data-year="2022"` through
+My Journey (`#journey`) follows Experience (`#experience`) and Recommendations;
+its timeline holds five `.tl__item` elements with `data-year="2022"` through
 `"2026"`, keeping the ordered list, rail, reveals and sticky aside with
 root-inclusive, idempotent initialization. `.timeline__year` uses a 1.2 line
 height with `0.1em` block padding so the gradient-clipped glyphs paint fully at
@@ -398,11 +405,14 @@ These are reference instructions for the owner, **never agent execution tasks**.
 - **Code-only PlaySkillSphere links:** the live deployment is unavailable; the
   owner chose removal over sending visitors to a dead domain. The project still
   demonstrates the engineering story and has accessible source.
-- **Annual timeline, not role cards:** five brief yearly summaries improve
-  scanability while retaining the approved career/project highlights.
-  Education/resume stays separate so the timeline does not become a second
-  resume. Site Builder's outreach expansion is explicitly aspirational rather
-  than inflating built capability.
+- **Experience first, journey separately:** yearly paragraphs obscured the
+  internship and freelance roles and omitted their accomplishments. Dedicated
+  role cards restore recruiter-facing titles, dates and impact, with the existing
+  `#experience` navigation target. Recommendations immediately follows as supporting
+  evidence; My Journey then preserves the five-year learning/project story at
+  `#journey` without making recruiters read it to find professional experience.
+  Education/resume remains separate. Site Builder's outreach expansion is
+  explicitly aspirational rather than inflating built capability.
 - **Reuse Procks with page-scoped layout:** the homepage PlaySkillSphere card is
   replaced with current client work while its timeline and freelance presence
   remain. Scoped CSS, not divergent shared-card copies, preserves byte-identical
