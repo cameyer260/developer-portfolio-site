@@ -268,9 +268,33 @@ the owner.
 
 ## Verification status
 
-Local checks on **2026-10-15**, after the design-review refinements (five yearly
+Local checks on **2026-10-15**, for the Experience / My Journey split:
+
+- Chromium and WebKit pass section order/indices, both role cards and all five
+  original accomplishment bullets, boosted `/freelance` → `/#experience`, merged
+  metadata/focus, same-page anchors, back/forward and all five sticky-year updates
+  after history restore. Mobile menu/Esc, keyboard skip link, resume opt-outs,
+  deep-path 404/head recovery, reduced motion, native no-JS navigation and
+  script-failure visibility also pass. Contact success/reset was mocked; no email
+  was sent. No unexpected page errors occurred.
+- Inspected screenshots at **375/768/1024/1280px** for the home changes, plus
+  phone/desktop freelance and 404 screenshots. Normal-size layout/overflow checks
+  pass, including phone landscape. New Experience cards also fit at 200% root
+  font size; an existing overflow elsewhere is recorded below, not counted as a
+  whole-page pass.
+- Shared blocks, JSON-LD, IDs, local links/anchors/assets and route/security/cache
+  headers pass. Journey entries are byte-identical to the preceding implementation;
+  role bullets match the original `main` content. Root `package.json`, lockfile and
+  `node_modules/` were removed; the documented `npx` workflow served the site with
+  fresh gitignored local state after a Wrangler-version SQLite mismatch.
+- Mobile Lighthouse 12: **96 Performance / 100 Accessibility / 100 Best
+  Practices / 100 SEO on home, 97 / 100 / 100 / 100 on freelance**; LCP about
+  2.5s, CLS 0. Firefox was not retested; production and delivery gaps remain below.
+  No deployment or production changes were made.
+
+Earlier design-review checks on **2026-10-15** (five yearly
 timeline entries, homepage Procks card, unclipped year, compact Skills,
-freelance hero) landed on top of the earlier dead-link removal:
+freelance hero), on top of the earlier dead-link removal:
 
 - Chromium and WebKit: full boost regression suites pass (navigation, merged
   head, focus, same/cross-page anchors, history, restored-form rebinding with a
@@ -337,6 +361,11 @@ PlaySkillSphere live links (GitHub and narrative retained):
   test from a normal browser and confirm receipt, coordinating any new test first.
   Do not bypass challenges, add a proxy, switch vendors or churn the form to make
   automation pass.
+- **Existing extreme text-scaling overflow:** at 375px with the root font size
+  forced to 200%, the home hero and Featured Work heading overflow to 568px.
+  Reproduced against `0beb3db` as well as the Experience split; the new role cards
+  themselves fit. This is a separate follow-up, not a regression from the split.
+  Earlier text-size results must not be read as coverage of this root-font case.
 - **Firefox is unverified:** a fresh headless launch timed out with sandbox/framebuffer
   errors. Chromium/WebKit results must not be presented as Firefox coverage. A
   normal Firefox browser check remains necessary.
