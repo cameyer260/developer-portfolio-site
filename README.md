@@ -26,9 +26,7 @@ Wrangler/bundled-runtime date mismatch. Serve over HTTP, not `file://`.
 
 Wrangler emulates Pages' clean URLs, custom 404 and `_headers`. Restart it if you
 create `_headers` after startup. A generic static server is not equivalent for
-route/header verification. If switching Wrangler versions produces a local
-SQLite-state error, append `--persist-to .pi/tmp/wrangler-state` to use fresh,
-gitignored local state without deleting the existing `.wrangler/` directory.
+route/header verification.
 
 ### Configuration
 
