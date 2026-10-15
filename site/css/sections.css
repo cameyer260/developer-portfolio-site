@@ -597,12 +597,6 @@
     display: grid;
     gap: var(--space-6);
     padding: clamp(1.25rem, 0.75rem + 2vw, 3rem);
-    border-inline-start: 3px solid var(--color-border-strong);
-  }
-
-  .role--featured {
-    border-color: var(--color-accent-line);
-    border-inline-start-color: var(--color-accent);
   }
 
   .role__header {

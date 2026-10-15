@@ -90,8 +90,9 @@ Localized refinements keep these primitives and the visual identity:
   `.project--wip` full-width treatment is retained for the freelance page only.
 - Experience uses two stacked `.role` cards in an `.experience` ordered list.
   At 64rem, each card pairs a metadata column with full accomplishment bullets;
-  below that, it stacks in reading order. `.role--featured` gives Zipper a stronger
-  amber border. Roles reuse the existing card, ticks, reveal and semantic tokens,
+  below that, it stacks in reading order. Both cards keep the standard `.card`
+  border with no per-role override; only Procks keeps its distinct dashed WIP
+  outline. Roles reuse the existing card, ticks, reveal and semantic tokens,
   without new JavaScript or hidden detail. Titles, dates, locations and bullets
   are restored from the original role content on `main`.
 - Education precedes Skills in HTML, not just visual order. Skills uses scoped

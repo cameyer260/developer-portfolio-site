@@ -55,7 +55,8 @@ In order:
 4. **Experience (`#experience`):** two substantial role cards with visible titles,
    organizations, dates, Remote locations and full accomplishment bullets:
    Software Engineer Intern at Zipper (Mar–Aug 2026), then Freelance Software
-   Developer / Self-Employed (2025–Present). Zipper has the strongest amber accent.
+   Developer / Self-Employed (2025–Present). Both cards share the standard card
+   border; only the Procks WIP card keeps its distinct dashed outline.
    Desktop pairs role metadata with the bullets; smaller screens stack them.
    The header's experience link lands here, not on the journey.
 5. **Recommendations (`#recommendations`):** Kerry Ritter, Zipper co-founder;
