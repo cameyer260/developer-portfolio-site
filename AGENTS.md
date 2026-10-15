@@ -22,7 +22,7 @@ Pages is the hosting target; deployment/cutover belongs entirely to the owner.
 | [README.md](./README.md) | Local setup, editing and verification |
 | [docs/PRD.md](./docs/PRD.md) | Audiences, sections, behavior and content constraints |
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Structure, shared markup, htmx gotchas, decisions, verification gaps and owner deployment checklist |
-| [docs/changes/design-review-feedback.md](./docs/changes/design-review-feedback.md) | **[Planned]** implementation plan for the aligned timeline, portrait, projects, skills and freelance hero refinements |
+
 
 ## Local commands
 
@@ -77,21 +77,17 @@ manifest or install the removed framework to satisfy stale instructions.**
 ## Content and integration gotchas
 
 - Internship availability is **Summer and Fall 2027 only**, never Winter/Spring.
-  The About graduation sentence says **December 2027**. The current timeline's
-  Spring 2026 date is intentional. **[Planned]** The
-  [design review plan](./docs/changes/design-review-feedback.md) will supersede
-  individual milestone dates/role cards with yearly summaries; preserve the
-  freelance practice's `2025 – Present` wording compactly within 2025.
+  The About graduation sentence says **December 2027**. The timeline uses one
+  entry per year, 2022–2026; the freelance practice's `2025 – Present` wording
+  lives compactly within 2025.
 - The **314 Google Voice number is intentional**. Do not substitute the personal
   number in the resume, or edit the resume PDF to reconcile dates.
 - Procks can be named on both pages with the existing high-level stack. No client
   name, screenshots, store links, review, case study, Firebase project IDs or
   internal tooling details before launch and approval.
-- Currently PlaySkillSphere appears in both project sections and the timeline.
-  **[Planned]** The [design review plan](./docs/changes/design-review-feedback.md)
-  will replace only its homepage card with Procks; keep its yearly timeline story,
-  freelance personal-project card and GitHub links. Its dead live-site links were
-  removed by owner decision; do not re-add them.
+- PlaySkillSphere appears in the 2025 timeline entry and the freelance
+  personal-project section, with GitHub links; its homepage card was replaced by
+  Procks. Its dead live-site links were removed by owner decision; do not re-add them.
 - Keep the experience timeline separate from education/resume. Future timeline
   illustrations belong in the desktop aside; they are not implemented.
 - Footer year uses **`data-current-year`**; `data-year` belongs to timeline entries.

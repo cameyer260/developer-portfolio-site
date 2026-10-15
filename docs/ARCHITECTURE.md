@@ -83,21 +83,17 @@ footers; pricing uses CSS subgrid to align headings, prices, lists and CTAs in
 pairs, with hidden empty note rows when stacked. The timeline's desktop aside is
 the reserved space for future illustrations.
 
-**[Planned]** [Design review refinements](./changes/design-review-feedback.md) will
-keep these primitives and the visual identity, with localized layout changes:
+Localized refinements keep these primitives and the visual identity:
 
-- Homepage-scoped WIP rules will put Procks beside StafferAI, retaining Site
-  Builder's featured span and the shared Procks markup. Currently `.project--wip`
-  spans every work grid from 48rem and uses an internal two-column layout from
-  64rem; override both only where needed on home, preserving freelance styling.
-- Education will precede Skills in HTML, not only visual CSS order. Skills will
-  use scoped header/section spacing and denser pane/list layout without changing
-  its three categories or 24 names. Exact geometry is TBD (decide during
-  implementation); global section spacing must not shrink as a side effect.
-- `.hero--freelance` will contain a heading-left/portrait-right desktop layout and
-  compact phone stacking. Keep the homepage hero unaffected, content-height
-  spacing, logical DOM order and label-width mobile CTAs. Final proportions and
-  breakpoints are TBD (decide during implementation).
+- Homepage-scoped WIP rules put Procks beside StafferAI while Site Builder keeps
+  its featured span and the shared Procks markup stays byte-identical. The base
+  `.project--wip` full-width treatment is retained for the freelance page only.
+- Education precedes Skills in HTML, not just visual order. Skills uses scoped
+  section/header spacing and a label-plus-wrapping-list layout; global section
+  spacing is untouched.
+- `.hero--freelance` holds a heading-left/portrait-right desktop layout with
+  compact phone stacking. The homepage hero is unaffected: content-height
+  spacing, logical DOM order and label-width mobile CTAs.
 
 The mobile menu uses native `<nav popover>` / `popovertarget`, inline from 48rem.
 Browsers without the API get wrapping links. The sticky header is solid by default;
@@ -118,17 +114,12 @@ inside `@media (prefers-reduced-motion: no-preference)`. A media feature inside
 - `site/images/icons.svg` is a Lucide 0.539.0 symbol sprite with its ISC notice.
   Use `<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#name"/></svg>`.
   Symbols omit paint attributes; CSS owns strokes/fills (`icon--filled` for stars).
-- The portrait retains its original URL (1200×801) and has a 720×481 responsive
-  variant. It is not lazy-loaded because it can be mobile LCP; it has high fetch
-  priority. **[Planned]** The
-  [design review plan](./changes/design-review-feedback.md) will diagnose and
-  correct the owner-reported blur before reusing the portrait in the freelance
-  hero. The original is byte-identical to the previous site's tracked asset;
-  compression is not an established cause. Compare `currentSrc`, intrinsic and
-  rendered dimensions, `sizes`, effective cover-crop pixels and DPR before
-  choosing new variants/crops/settings (TBD during implementation). Preserve the
-  public URL, reserve space and use page-appropriate image sizing/fetch behavior;
-  request a sharper source if needed rather than upscale or accept visible blur.
+- The portrait keeps its original URL at 1200×801 and is served directly, capped
+  so displays never upscale it: the prior 720×481 variant was selecting at DPR 1
+  and stretching to a taller 4:5 crop, which caused the reported blur. Both
+  portraits keep their landscape composition with reserved dimensions; neither is
+  lazy-loaded, and both carry high fetch priority. The About image can be LCP,
+  the freelance hero image is LCP-adjacent.
 - The Miles to Go screenshot has 720/960/1280px WebP variants in
   `images/work/`, from a 1440×720 capture at a 1440px viewport. To refresh, capture
   the same area and overwrite the three responsive images. They are revalidated,
@@ -169,15 +160,12 @@ top-level element, not necessarily main or body.
 **Footer hook is `data-current-year`.** Timeline entries use `data-year`; a generic
 year updater would overwrite their entire contents.
 
-**[Planned]** [Design review refinements](./changes/design-review-feedback.md) will
-reduce the timeline to five `.tl__item` elements with `data-year="2022"` through
-`"2026"`, removing separate role/Now entries while retaining the ordered list,
-rail, reveals and sticky aside. Preserve root-inclusive/idempotent initialization
-and test the shorter observer ranges after boosted loads/history restores.
-Investigate `.timeline__year`'s font/line box, gradient text paint bounds and the
-existing `0.12em` year-change translation to fix clipped numerals at rest and
-mid-animation. The cause/fix and need for JS changes are TBD (decide during
-implementation); keep the marker decorative and reduced-motion updates static.
+The timeline holds five `.tl__item` elements with `data-year="2022"` through
+`"2026"`, keeping the ordered list, rail, reveals and sticky aside with
+root-inclusive, idempotent initialization. `.timeline__year` uses a 1.2 line
+height with `0.1em` block padding so the gradient-clipped glyphs paint fully at
+rest and mid-animation; no JS change was needed. The marker stays decorative and
+reduced-motion year updates stay static.
 
 Typewriter replays on fresh loads/swaps, not history restores. The untyped
 remainder reserves space. Reveal/typewriter hiding applies only when scripting is
@@ -273,16 +261,35 @@ the owner.
 
 ## Verification status
 
-**[Planned]** [Design review refinements](./changes/design-review-feedback.md) are
-not implemented or browser-verified. The results below precede that work. Its
-verification will require fresh 375/768/1280px screenshots, actual-size DPR 2
-portrait inspection, all five years at rest/mid-transition across desktop widths,
-Skills text parity, shared-block checks and navigation/history/reduced-motion/no-JS
-regressions, plus the relevant README performance/static checks. Record new
-results separately from historical coverage and report browser/service blockers.
+Local checks on **2026-10-15**, after the design-review refinements (five yearly
+timeline entries, homepage Procks card, unclipped year, compact Skills,
+freelance hero) landed on top of the earlier dead-link removal:
 
-Local checks on **2026-10-15**, after removing all three dead PlaySkillSphere live
-links (GitHub and narrative retained):
+- Chromium and WebKit: full boost regression suites pass (navigation, merged
+  head, focus, same/cross-page anchors, history, restored-form rebinding with a
+  mock, PDF opt-out, 404 fallback and head recovery). All five year glyphs and
+  mid-animation frames are unclipped at 1024/1280/1440px in both scroll
+  directions, after history restore and under reduced motion.
+- Fresh screenshots at **375/768/1280px** on both content pages and a deep 404;
+  no horizontal overflow or unexpected page/resource errors, including at 200%
+  text size. Skills copy is byte-identical (24 names, three categories) at
+  roughly half the previous section height. Portraits verify at DPR 2 with no
+  upscaling on either page.
+- Keyboard pass, mobile menu, skip link, reduced-motion visibility/transitions,
+  native no-JS content/menu/anchors/mocked-POST and script-failure visibility
+  fallbacks pass. Mocked contact tests pass sending/disabled state, success and
+  focus, Send another/reset and network/API errors with the message preserved.
+  **Mocks are not evidence of email delivery.**
+- Mobile Lighthouse 12: **96 Performance / 100 Accessibility / 100 Best
+  Practices / 100 SEO on home, 97 / 100 / 100 / 100 on freelance**; LCP about
+  2.5s, CLS 0, TBT 0. A real HTTP 404 cannot be audited by Lighthouse;
+  browser checks cover it instead.
+- Shared blocks match; JSON-LD parses and matches; local links/anchors/sprite IDs
+  and assets resolve, including removal of the orphaned 720px portrait variant.
+  Routes/redirects and response headers match the rules above.
+
+Earlier baseline checks on **2026-10-15**, after removing all three dead
+PlaySkillSphere live links (GitHub and narrative retained):
 
 - Chromium and WebKit: **9/9 real-page boost regression checks each** (navigation,
   merged head, focus, anchors, history, restored-form binding with a mock, PDF
@@ -391,24 +398,21 @@ These are reference instructions for the owner, **never agent execution tasks**.
 - **Code-only PlaySkillSphere links:** the live deployment is unavailable; the
   owner chose removal over sending visitors to a dead domain. The project still
   demonstrates the engineering story and has accessible source.
-- **[Planned] Annual timeline, not condensed role cards:**
-  [design review refinements](./changes/design-review-feedback.md) will favor five
-  brief yearly summaries to improve scanability while retaining the approved
-  career/project highlights. Education/resume will stay separate so the timeline
-  does not become a second resume. Site Builder's outreach expansion will remain
-  explicitly aspirational rather than inflating built capability.
-- **[Planned] Reuse Procks with page-scoped layout:**
-  [the same plan](./changes/design-review-feedback.md) will replace the homepage
-  PlaySkillSphere card with current client work while retaining its timeline and
-  freelance presence. Scoped CSS, not divergent shared-card copies, will preserve
-  byte-identical markup and avoid an unintended freelance redesign.
-- **[Planned] Image quality before payload savings:**
-  [the portrait correction](./changes/design-review-feedback.md) will be driven by
-  rendered/high-DPI inspection, not an assumed compression cause or score chasing.
-  An unchanged original can still look worse through source selection, enlargement
-  or cropping; the final choice must preserve visible quality and stable layout.
-- **[Planned] Broader freelance capabilities, honest positioning:**
-  [the hero revision](./changes/design-review-feedback.md) will communicate more
-  than websites without changing the commercial page structure. Internal-tooling
-  interest and the project-fit invitation will broaden the message without
-  inventing an established client track record.
+- **Annual timeline, not role cards:** five brief yearly summaries improve
+  scanability while retaining the approved career/project highlights.
+  Education/resume stays separate so the timeline does not become a second
+  resume. Site Builder's outreach expansion is explicitly aspirational rather
+  than inflating built capability.
+- **Reuse Procks with page-scoped layout:** the homepage PlaySkillSphere card is
+  replaced with current client work while its timeline and freelance presence
+  remain. Scoped CSS, not divergent shared-card copies, preserves byte-identical
+  markup and avoids an unintended freelance redesign.
+- **Image quality before payload savings:** the portrait correction was driven by
+  rendered/high-DPI inspection, not an assumed compression cause or score
+  chasing. The unchanged original looked worse through source selection and
+  upscaling; serving it directly at capped display sizes restores quality with
+  stable layout.
+- **Broader freelance capabilities, honest positioning:** the hero revision
+  communicates more than websites without changing the commercial page structure.
+  Internal-tooling interest and the project-fit invitation broaden the message
+  without inventing an established client track record.
