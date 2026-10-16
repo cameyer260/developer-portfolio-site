@@ -1,157 +1,147 @@
 # AGENTS.md
 
-Guidance for AI agents and contributors working in this repo. Read this before
-making changes. For human-oriented setup, see [`README.md`](./README.md).
+Guidance for agents and contributors. Read this before changing the repository.
+For setup, see [README.md](./README.md).
 
 ## What this is
 
-My personal developer portfolio, showcasing myself as a full-stack software engineer, 
-including my skills, experience, and projects. The site includes a two-way funnel to 
-the two opportunities I am currently interested in: a Summer or Fall 
-of 2027 software engineering internship (not Winter/Spring 2027) and freelance software development work. So 
-the two primary viewers for this site will recruiters and small business owners/managers. 
-Hence the reason for having my general home page and a seperate `/freelance` page. It is
-a simple static Next.js site that is hosted on Vercel.
+Christopher Meyer's personal developer portfolio. `/` targets recruiters for
+**Summer and Fall 2027** software engineering internships; `/freelance` targets
+small-business owners seeking websites and custom software. Pricing stays off the
+homepage.
 
-The visual identity is a **warm-dark, terminal-soul** aesthetic — a modern site
-with terminal *flavor* (typewriter `whoami`, blinking cursor, amber prompt accents),
-not a literal terminal UI.
-
-> **[Planned] rewrite in progress.** The site is moving to hand-written static HTML,
-> plain CSS/JS and htmx on Cloudflare Pages, with a redesign. Everything below
-> describes the current Next.js site until that lands. Implementation plan:
-> [`docs/changes/static-site-rewrite.md`](./docs/changes/static-site-rewrite.md).
+The site is hand-written static HTML, plain CSS and JavaScript, served as-is from
+`site/`. htmx 2.0.11 and head-support 2.0.5 enhance real links into page swaps.
+There is no framework, package manifest, compilation or build step. Cloudflare
+Pages is the hosting target; deployment/cutover belongs entirely to the owner.
 
 ## Docs map
 
 | Doc | What it covers |
 | --- | --- |
-| [`README.md`](./README.md) | Human-oriented overview and setup |
-| [`docs/PRD.md`](./docs/PRD.md) | Behavior: audiences, pages, sections, contact form |
-| [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) | Structure, hosting, and "Decisions and why" |
-| `docs/changes/*.md` | Temporary plans for in-flight changes; deleted when done |
+| [README.md](./README.md) | Local setup, editing and verification |
+| [docs/PRD.md](./docs/PRD.md) | Audiences, sections, behavior and content constraints |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Structure, shared markup, htmx gotchas, decisions, verification gaps and owner deployment checklist |
 
-## Tech stack
 
-| Area        | Choice                                                       |
-| ----------- | ------------------------------------------------------------ |
-| Framework   | [Next.js 16](https://nextjs.org) (App Router), React 19      |
-| Language    | TypeScript 5 (strict)                                        |
-| Styling     | Tailwind CSS v4 (CSS-first `@theme` config in `globals.css`) |
-| Motion      | framer-motion                                                |
-| Icons       | lucide-react                                                 |
-| UI plumbing | Radix Slot, class-variance-authority, clsx, tailwind-merge   |
-| Fonts       | IBM Plex Mono + IBM Plex Sans (via `next/font`)              |
-| Analytics   | Vercel Analytics + Google Analytics                          |
-| Hosting     | Vercel                                                       |
-
-## Commands
+## Local commands
 
 ```bash
-npm install        # install deps (Node >=20.9.0)
-npm run dev        # dev server on :3000
-npm run build      # production build — run this to verify a change compiles
-npm run lint       # ESLint (eslint-config-next). Keep it clean.
+npx wrangler pages dev site --port 8788 --ip 127.0.0.1 --compatibility-date=2026-06-01
+# http://127.0.0.1:8788/ and /freelance
+
+git diff --check
+git diff --cached --check
 ```
 
-There is no test suite. Verify changes with `npm run build` and `npm run lint`, and
-visually where it matters.
+Check for an existing local server before starting another. The compatibility date
+avoids an installed Wrangler/runtime mismatch. Restart if `_headers` is created
+after startup. Use HTTP, not `file://`; use Wrangler for Pages route/header checks.
 
-## Architecture & conventions
+**There are no `npm run lint` / `npm run build` commands. Do not restore a package
+manifest or install the removed framework to satisfy stale instructions.**
 
-### Content layer — edit data, not markup
+## Editing conventions
 
-The site is **content-driven**. All copy and data live in typed modules under
-`lib/content/` (`profile`, `projects`, `experience`, `education`, `skills`,
-`pricing`, `faq`, `testimonials`). Components consume that data and own
-presentation only.
+- Copy lives directly in `site/index.html` and `site/freelance.html`; no content
+  modules or generators. Preserve wording unless the requested change alters it.
+- Keep `/freelance` backed by **`freelance.html`**, not `freelance/index.html`.
+  Pages' directory routing would change the canonical URL to `/freelance/`.
+- Use root-absolute asset paths so the 404 works at arbitrary depths. Preserve
+  existing public URLs, especially the resume, portrait, OG images and favicons.
+- Repeated HTML uses matching `<!-- shared:NAME -->` markers. `index.html` is the
+  source; keep each matching block byte-identical in every page that contains it.
+  The [block map](./docs/ARCHITECTURE.md#shared-markup) lists all seven names.
+  Page-specific metadata belongs inside `page:meta`, not `shared:head`.
+- CSS link order is `base.css`, `layout.css`, `components.css`, `sections.css`,
+  `utilities.css`. The layer order declaration must remain first in `base.css`.
+  Use semantic custom properties and BEM-style component classes, not utility soup.
+- Preserve the approved **warm-dark, terminal-soul** identity: warm charcoal, amber,
+  subtle grain; Newsreader display, IBM Plex Sans body, IBM Plex Mono labels. No
+  pure-black/cool-grey redesign or literal navigable terminal UI.
+- Every motion feature must respect `prefers-reduced-motion`, including page
+  transitions. CSS motion uses a **media query**, not a motion feature inside
+  `@supports`. Keep the no-JS/script-failure visibility fallbacks.
+- JavaScript is ES modules. Features expose idempotent `init(root)` called from
+  `htmx.onLoad`. Include `root` itself when selecting nodes (`dom.js`'s `select`).
+  Bind with `WeakSet` guards, not persistent `data-` flags: history snapshots keep
+  attributes but lose event listeners. Reset transient UI before history saves.
+- Keep identical script tags in the shared head. Don't remove the `hx-boost="false"`
+  opt-outs on forms and resume links. Review `boost.js` before changing navigation.
+- Only fonts and versioned vendor files are immutable-cached. Never overwrite an
+  existing font URL; use a new filename. Don't long-cache unversioned HTML/CSS/JS,
+  images or the resume.
+- Add new public content routes to `site/sitemap.xml` and supply page metadata.
+  Canonical host: `https://www.christophermeyer.dev`.
 
-- To change text, projects, pricing, etc. → **edit the content module**, not the
-  component.
-- Content arrays/objects are typed and `as const`. Preserve the existing types when
-  adding entries.
+## Content and integration gotchas
 
-### Components
+- Internship availability is **Summer and Fall 2027 only**, never Winter/Spring.
+  The About graduation sentence says **December 2027**. The timeline uses one
+  entry per year, 2022–2026; the freelance practice's `2025 – Present` wording
+  lives compactly within 2025.
+- The **314 Google Voice number is intentional**. Do not substitute the personal
+  number in the resume, or edit the resume PDF to reconcile dates.
+- Procks can be named on both pages with the existing high-level stack. No client
+  name, screenshots, store links, review, case study, Firebase project IDs or
+  internal tooling details before launch and approval.
+- PlaySkillSphere appears in the 2025 timeline entry and the freelance
+  personal-project section, with GitHub links; its homepage card was replaced by
+  Procks. Its dead live-site links were removed by owner decision; do not re-add them.
+- Experience (`#experience`) has dedicated Zipper and freelance role cards before
+  Recommendations. My Journey (`#journey`) is the annual timeline that follows;
+  keep both separate from education/resume. Future timeline illustrations belong
+  in the desktop aside; they are not implemented.
+- Footer year uses **`data-current-year`**; `data-year` belongs to timeline entries.
+  A generic year selector previously wiped timeline content.
+- The public Web3Forms key is inlined in both forms; there is no runtime env
+  requirement. Do not copy it into docs or expose other `.env.local` values.
+- One real email test was approved and attempted, but failed to verify delivery.
+  Mock tests pass; upstream diagnostics do not prove the key is wrong. Start with
+  non-submitting checks; do not repeat deliveries, bypass challenges, add a proxy
+  or change vendors just to satisfy automation. Hand back an owner-assisted normal
+  browser/recipient check. See the [verification record](./docs/ARCHITECTURE.md#verification-status).
+- No analytics snippet is needed in source. The owner enables Cloudflare Web
+  Analytics at deployment and checks page views across boosted navigation.
 
-Organized by purpose under `components/`:
+## Verification expectations
 
-- `home/` — homepage sections (composed in `app/page.tsx`)
-- `freelance/` — freelance sections (composed in `app/freelance/page.tsx`)
-- `layout/` — `Nav`, `Footer` (mounted in `app/layout.tsx`)
-- `motion/` — client-side motion (`typewriter`, `cursor`, `reveal`)
-- `ui/` — reusable primitives (`button`, `badge`, `card`, `tag`, …) built with CVA
-  + the `cn()` helper
+Before finishing, run whitespace checks and the relevant static-site checks in
+[README.md](./README.md#verify-changes). There is no committed test suite.
 
-Conventions:
+**Actively inspect browser screenshots at phone and desktop widths.** Check
+whitespace, wrapping, orphaned brackets, stretched buttons and unbalanced columns,
+not only console errors and horizontal overflow. Preserve the content-height hero
+and label-width mobile CTAs; don't reintroduce a viewport-height/bottom-aligned
+hero or full-width mobile doors. Include 768px in broader layout reviews.
 
-- **Server Components by default.** Add `"use client"` only when a component needs
-  hooks/interactivity (the `motion/` components do; most sections don't).
-- Use the **`@/`** path alias (maps to repo root) for imports.
-- Compose class names with **`cn()`** from `lib/utils.ts` (clsx + tailwind-merge).
-  Don't hand-concatenate Tailwind strings.
-- Reuse `ui/` primitives instead of re-implementing buttons/badges/cards.
+Exercise boosted navigation, anchors, history, merged head/focus, resume opt-outs,
+mobile menu, deep-path 404, reduced motion and no-JS behavior when relevant. Mock
+contact requests; distinguish mocked success from real email delivery. Report
+blocked browser engines or external services honestly. Deployment-only checks
+remain owner tasks, never agent execution tasks.
 
-### Styling & design system
+## Workflow and safety
 
-- Tailwind CSS v4 with **CSS-first config**: design tokens live in the `@theme`
-  block of `app/globals.css`, **not** a `tailwind.config.js`.
-- Use the semantic color tokens (`bg`, `surface`, `text`, `muted`, `accent`,
-  `accent-2`, `border`) rather than raw hex. The palette is warm-dark, **not
-  black** — don't introduce cool greys or pure `#000`.
-- Visual identity is "terminal *soul*", not a literal terminal (see "Decisions and
-  why" in [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md)). Terminal
-  is flavor (mono type, prompt motifs, amber accents, signature motion) — don't
-  build a navigable terminal UI.
-- Respect `prefers-reduced-motion`: motion components already gate on it (see
-  `motion/typewriter.tsx`). Any new motion must do the same.
-
-### SEO
-
-- Global metadata, Open Graph, Twitter, and JSON-LD (`Person` +
-  `ProfessionalService`) live in `app/layout.tsx`. `/freelance` overrides metadata
-  in its own `page.tsx`.
-- `app/sitemap.ts` and `app/robots.ts` generate `/sitemap.xml` and `/robots.txt`.
-  **Add new routes to `sitemap.ts`.**
-- The canonical site URL is `https://www.christophermeyer.dev`.
-
-## Gotchas — read these
-
-- **Internship availability is Summer & Fall 2027 only, not Winter/Spring 2027.**
-  The current site copy is stale and still says "Winter/Spring, Summer & Fall 2027" in
-  `lib/content/profile.ts` (`status.openTo`), `components/home/about.tsx` and
-  `app/layout.tsx` (`DESCRIPTION`). Never copy that wording into new copy or the
-  rewrite. See "Availability wording" in
-  [`docs/changes/static-site-rewrite.md`](./docs/changes/static-site-rewrite.md).
-
-- **`NEXT_PUBLIC_WEB3FORMS_KEY`** is required for the contact form — it's injected
-  as the Web3Forms `access_key` in the shared `components/contact/contact-form.tsx`
-  (used by both the homepage `Contact` and `/freelance`'s `FreelanceContact`). Unlike
-  GA there's no guard, so if it's unset the form renders `access_key=undefined` and
-  submissions silently fail (the form drops into its error state). Add it to
-  `.env.local`.
-- **`NEXT_PUBLIC_GA_ID`** is optional — Google Analytics only mounts when it's set,
-  so its absence in dev is expected, not a bug.
-
-## Workflow expectations
-
-- Match the surrounding code style: typed, concise, comments only where they earn
-  their place (the existing files are a good reference).
-- Don't commit or push unless asked. If asked and on `main`, branch first.
-- **Never deploy.** All development is local. Don't run `wrangler deploy` or
-  `wrangler pages deploy`, don't create or configure Cloudflare or Vercel projects,
-  and don't touch DNS. The owner reviews locally and handles every deployment.
-- Before finishing a change, run `npm run lint` and `npm run build`.
+- Inspect status and staged/unstaged changes before editing. Preserve existing
+  work, including untracked implementation files. Never reset/clean it away.
+- Match the surrounding concise code style; comments only where useful.
+- Do not commit or push unless asked. If asked while on `main`, branch first.
+- **Never deploy**, including previews. No `wrangler deploy` or
+  `wrangler pages deploy`, cloud project creation/configuration, or DNS changes.
+- Put new scratch scripts, dependencies and screenshots in gitignored `.pi/tmp/`;
+  clean up your scratch files when done. Never put test files in the served site.
 
 ## Documentation rules
 
-**Definition of done.** A task is not done until ALL of these are true:
-1. It is fully implemented in the repo and works (tests/verification pass).
-2. The docs describe what was actually built, accurately.
-3. The docs no longer describe it as planned: every `[Planned]` marker for it is removed entirely (built things carry no marker; the docs read as normal docs), and any planned-change wording is rewritten as plain present tense.
+A task is done only when the code works, verification passes (or blockers are
+explicitly handed back), and permanent docs accurately describe the built result.
+Built features carry no planned markers or obsolete current/planned comparisons.
 
-Docs are the primary way humans understand this project, because humans do not read the code. Update docs in the same change as the code.
-- `PRD.md` describes behavior. `ARCHITECTURE.md` describes structure. If someone would otherwise need to open the code to learn it, document it.
-- Prefer updating an existing doc over creating a new one. Don't duplicate content across docs; link instead.
-- Create new docs when the project needs them and add them to the Docs map in AGENTS.md.
-- If you discover a doc is wrong or stale, fix it.
-- Record decisions and their reasons in the "Decisions and why" section of ARCHITECTURE.md. Do not create separate ADR files.
+Docs are the primary way humans understand the project. Update them with the code:
+`PRD.md` describes behavior; `ARCHITECTURE.md` describes structure and records
+**decisions and their reasons**. Prefer editing existing docs over duplication or
+new ADR files. Add genuinely needed new docs to this map. Fix stale docs when found.
+Fold lasting context out of temporary change plans/handoffs, then delete those
+files and their references; remove their directory only when empty. Deployment is
+not a prerequisite for that cleanup.

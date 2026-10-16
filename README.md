@@ -1,106 +1,110 @@
 # Christopher Meyer — Dev Portfolio
 
-My personal developer portfolio, showcasing myself as a full-stack software engineer, 
-including my skills, experience, and projects. The site includes a two-way funnel to 
-the two opportunities I am currently interested in: a Summer or Fall 
-of 2027 software engineering internship (not Winter/Spring 2027) and freelance software development work. So 
-the two primary viewers for this site will recruiters and small business owners/managers. 
-Hence the reason for having my general home page and a seperate `/freelance` page. It is
-a simple static Next.js site that is hosted on Vercel.
+Personal portfolio for Summer and Fall 2027 software engineering internships and
+freelance software development. Recruiters start at `/`; local businesses use
+`/freelance`.
 
-The visual identity is a **warm-dark, terminal-soul** aesthetic — a modern site
-with terminal *flavor* (typewriter `whoami`, blinking cursor, amber prompt accents),
-not a literal terminal UI.
+Hand-written HTML, plain CSS and JavaScript, with htmx-enhanced navigation. The
+warm-dark, terminal-soul design pairs Newsreader headings with IBM Plex Sans body
+text and IBM Plex Mono labels.
 
-## Tech stack
+## Run locally
 
-| Area        | Choice                                                       |
-| ----------- | ------------------------------------------------------------ |
-| Framework   | [Next.js 16](https://nextjs.org) (App Router), React 19      |
-| Language    | TypeScript 5 (strict)                                        |
-| Styling     | Tailwind CSS v4 (CSS-first `@theme` config in `globals.css`) |
-| Motion      | framer-motion                                                |
-| Icons       | lucide-react                                                 |
-| UI plumbing | Radix Slot, class-variance-authority, clsx, tailwind-merge   |
-| Fonts       | IBM Plex Mono + IBM Plex Sans (via `next/font`)              |
-| Analytics   | Vercel Analytics + Google Analytics                          |
-| Hosting     | Vercel                                                       |
-
-## Getting started
-
-Requires Node `>=20.9.0`.
+Use a current Node.js release supported by Wrangler (Node 22+ recommended) and npm
+for `npx`. Node runs the local Wrangler tool, not the site. There are no project
+dependencies to install and no build step. `npx` can use npm's external cache;
+do not run `npm install` or create a root package manifest for local serving.
 
 ```bash
-npm install      # install dependencies
-npm run dev      # start the dev server at http://localhost:3000
+npx wrangler pages dev site --port 8788 --ip 127.0.0.1 --compatibility-date=2026-06-01
 ```
 
-### Scripts
+Open [http://127.0.0.1:8788/](http://127.0.0.1:8788/) and
+[http://127.0.0.1:8788/freelance](http://127.0.0.1:8788/freelance).
+This command runs locally; it does not deploy. The compatibility date avoids a
+Wrangler/bundled-runtime date mismatch. Serve over HTTP, not `file://`.
 
-| Command         | What it does                          |
-| --------------- | ------------------------------------- |
-| `npm run dev`   | Start the local dev server            |
-| `npm run build` | Production build                      |
-| `npm run start` | Serve a production build              |
-| `npm run lint`  | Run ESLint (`eslint-config-next`)     |
+Wrangler emulates Pages' clean URLs, custom 404 and `_headers`. Restart it if you
+create `_headers` after startup. A generic static server is not equivalent for
+route/header verification.
 
-### Environment variables
+### Configuration
 
-| Variable                    | Required               | Purpose                                                                 |
-| --------------------------- | ---------------------- | ----------------------------------------------------------------------- |
-| `NEXT_PUBLIC_WEB3FORMS_KEY` | Yes (for contact form) | Web3Forms access key. Injected as the form's `access_key`; submissions fail without it. |
-| `NEXT_PUBLIC_GA_ID`         | No                     | Google Analytics measurement ID. Omit in dev — GA only loads when set.  |
+No site environment variables are required. Both forms contain the public
+Web3Forms access key in a hidden input; it is not a secret or a runtime env lookup.
+Keep the two copies synchronized. Never put private credentials under `site/`.
+An existing ignored `.env.local` is unnecessary for this site and can be removed
+by the owner; Wrangler may load it into its unused local Worker environment.
 
-## Project structure
+The repository includes no analytics snippet. The owner enables Cloudflare Web
+Analytics at deployment; there is no Google or Vercel Analytics integration.
 
-```
-app/                     # Next.js App Router
-  layout.tsx             # Root layout: fonts, metadata, JSON-LD, nav/footer, analytics
-  page.tsx               # Homepage (/) — composes home sections
-  freelance/page.tsx     # Freelance page (/freelance)
-  sitemap.ts, robots.ts  # SEO route handlers
-  globals.css            # Tailwind import + warm-dark design tokens (@theme)
+## Files and content
 
-components/
-  home/                  # Homepage sections (hero, about, featured-work, …)
-  freelance/             # Freelance sections (hero, pricing)
-  layout/                # Nav, footer
-  motion/                # Client-side motion (typewriter, cursor, reveal)
-  ui/                    # Reusable primitives (button, badge, card, …)
-
-lib/
-  content/               # All site copy/data as typed TS modules (the content layer)
-  utils.ts               # cn() — clsx + tailwind-merge helper
-
-public/                  # Static assets (resume PDF, images, favicons, OG image)
+```text
+site/                         # served as-is; nothing outside this directory is served
+  index.html                  # /
+  freelance.html              # /freelance (not a directory/index.html)
+  404.html                    # unmatched paths, HTTP 404
+  css/                        # base → layout → components → sections → utilities
+  js/                         # ES modules, initialized on htmx loads/restores
+  vendor/                     # htmx 2.0.11 + head-support 2.0.5
+  fonts/                      # self-hosted WOFF2 and OFL licenses
+  images/                     # responsive images and Lucide SVG sprite
+  _headers                    # Pages security and caching rules
+  robots.txt, sitemap.xml
+  christopher-meyer-resume.pdf # original public URL retained
+  …                           # portrait, favicons and Open Graph images
 ```
 
-## How content works
+Copy lives directly in the HTML. Edit the relevant page, not a generated file.
+Repeated blocks have `<!-- shared:NAME -->` markers; `site/index.html` is their
+source of truth. Synchronize all copies when editing shared content. See the
+[shared-block map](./docs/ARCHITECTURE.md#shared-markup) and
+[content constraints](./docs/PRD.md#content-constraints).
 
-The site is **content-driven**: copy and data live in typed modules under
-`lib/content/` (`profile`, `projects`, `experience`, `education`, `skills`,
-`pricing`), and components render that data. To update text, projects, or pricing,
-edit the relevant content module — not the components.
+## Verify changes
 
-## SEO
+There are no npm lint/build scripts or committed automated test suite. Against the
+local server:
 
-Metadata, Open Graph, and Twitter cards are configured in `app/layout.tsx` (with a
-per-page override on `/freelance`). Structured data is emitted as JSON-LD
-(`Person` + `ProfessionalService`), and `sitemap.ts` / `robots.ts` produce
-`/sitemap.xml` and `/robots.txt`.
+- Review screenshots at phone, tablet and desktop widths (375, 768, 1280px), not
+  just overflow measurements. Check wrapping, whitespace and CTA/card alignment.
+- Exercise navigation in both directions, anchors, back/forward, metadata/focus
+  after swaps, mobile menu, resume download and a deep-path 404.
+- Test keyboard access, reduced motion and JavaScript-disabled navigation.
+- Mock Web3Forms to test sending, success, errors, reset and native no-JS POST.
+  **Do not send real test emails without approval.** Real delivery is still
+  unverified; see [verification status](./docs/ARCHITECTURE.md#verification-status).
+- Check links, shared-block parity, JSON-LD, all assets and response headers. Run
+  mobile Lighthouse on both content pages; target 95+ in all four categories.
 
-## Deployment
+```bash
+curl -I http://127.0.0.1:8788/
+curl -I http://127.0.0.1:8788/freelance
+curl -I http://127.0.0.1:8788/a/b/c/missing
+curl -I http://127.0.0.1:8788/vendor/htmx-2.0.11.min.js
+git diff --check
+git diff --cached --check
+```
 
-Deployed on Vercel. Pushes to `main` deploy to production at
-[christophermeyer.dev](https://www.christophermeyer.dev).
+Expected: content routes return 200, the unknown path returns 404 with `no-store`,
+and only fonts/versioned vendor files have one-year immutable caching.
 
-## For AI agents / contributors
+## Hosting and deployment
 
-Conventions, architecture details, and gotchas are documented in
-[`AGENTS.md`](./AGENTS.md). Read it before making changes. Product behavior and
-architecture live in [`docs/PRD.md`](./docs/PRD.md) and
-[`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md).
+The source targets Cloudflare Pages: Git-connected `main`, no build command,
+output directory `site`. The canonical host is
+[www.christophermeyer.dev](https://www.christophermeyer.dev).
 
-> **[Planned]** A rewrite to a static HTML/CSS/JS + htmx site on Cloudflare Pages is
-> in progress — see [`docs/changes/static-site-rewrite.md`](./docs/changes/static-site-rewrite.md).
-> This README describes the current Next.js site until that lands.
+**Deployment and production cutover are owner-only and have not been verified
+locally.** Agents must never deploy, configure cloud projects or change DNS.
+The [owner checklist](./docs/ARCHITECTURE.md#owner-only-deployment-and-cutover)
+covers domains, analytics, production checks and retiring the Vercel integration.
+
+## Documentation
+
+- [AGENTS.md](./AGENTS.md): contributor rules and gotchas; read before editing.
+- [Product](./docs/PRD.md): audiences, sections and behavior.
+- [Architecture](./docs/ARCHITECTURE.md): structure, decisions, maintenance,
+  verification gaps and deployment checklist.

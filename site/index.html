@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- shared:head -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#14110d">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false,"refreshOnHistoryMiss":true}'>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/sections.css">
+  <link rel="stylesheet" href="/css/utilities.css">
+  <script defer src="/vendor/htmx-2.0.11.min.js"></script>
+  <script defer src="/vendor/head-support-2.0.5.min.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <!-- /shared:head -->
+
+  <!-- page:meta -->
+  <title>Christopher Meyer | Software Engineer</title>
+  <meta name="description" content="Christopher Meyer — software engineer building AI agents and full-stack products. CS student at SIUE, open to Summer &amp; Fall 2027 internships and freelance work.">
+  <meta name="application-name" content="Christopher Meyer">
+  <meta name="author" content="Christopher Meyer">
+  <meta name="creator" content="Christopher Meyer">
+  <link rel="author" href="https://www.christophermeyer.dev">
+  <meta name="keywords" content="Christopher Meyer,software engineer,AI engineer,full-stack developer,AI agents,Next.js,TypeScript,Edwardsville,St. Louis,SIUE">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.christophermeyer.dev">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.christophermeyer.dev">
+  <meta property="og:site_name" content="Christopher Meyer">
+  <meta property="og:title" content="Christopher Meyer | Software Engineer">
+  <meta property="og:description" content="Christopher Meyer — software engineer building AI agents and full-stack products. CS student at SIUE, open to Summer &amp; Fall 2027 internships and freelance work.">
+  <meta property="og:image" content="https://www.christophermeyer.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Christopher Meyer | Software Engineer">
+  <meta name="twitter:description" content="Christopher Meyer — software engineer building AI agents and full-stack products. CS student at SIUE, open to Summer &amp; Fall 2027 internships and freelance work.">
+  <meta name="twitter:image" content="https://www.christophermeyer.dev/og-image.png">
+  <!-- shared:jsonld -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.christophermeyer.dev/#person",
+        "name": "Christopher Meyer",
+        "url": "https://www.christophermeyer.dev",
+        "image": "https://www.christophermeyer.dev/christopher-meyer.webp",
+        "email": "cameyer06@gmail.com",
+        "telephone": "+1-314-529-1949",
+        "jobTitle": "Software Engineer",
+        "address": { "@type": "PostalAddress", "addressLocality": "Edwardsville", "addressRegion": "IL", "addressCountry": "US" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Southern Illinois University Edwardsville" },
+        "sameAs": ["https://www.linkedin.com/in/cameyer06/", "https://github.com/cameyer260"],
+        "knowsAbout": ["Software Engineering", "AI Agents", "Full-Stack Development", "Next.js", "TypeScript", "Retrieval-Augmented Generation"]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.christophermeyer.dev/#service",
+        "name": "Christopher Meyer Freelance Development",
+        "url": "https://www.christophermeyer.dev/freelance",
+        "image": "https://www.christophermeyer.dev/og-image.png",
+        "description": "Freelance software developer building custom websites, web applications, mobile applications and APIs for businesses in the Edwardsville and St. Louis area.",
+        "email": "cameyer06@gmail.com",
+        "telephone": "+1-314-529-1949",
+        "address": { "@type": "PostalAddress", "addressLocality": "Edwardsville", "addressRegion": "IL", "addressCountry": "US" },
+        "areaServed": [
+          { "@type": "City", "name": "Edwardsville" },
+          { "@type": "City", "name": "St. Louis" },
+          { "@type": "AdministrativeArea", "name": "Metro East" }
+        ],
+        "provider": { "@id": "https://www.christophermeyer.dev/#person" },
+        "sameAs": ["https://www.linkedin.com/in/cameyer06/", "https://github.com/cameyer260"]
+      }
+    ]
+  }
+  </script>
+  <!-- /shared:jsonld -->
+  <!-- /page:meta -->
+</head>
+<body hx-boost="true" hx-ext="head-support">
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a class="site-header__logo" href="/#top"><span class="prompt">~/</span>christopher-meyer</a>
+      <button class="site-header__toggle btn btn--outline btn--sm" type="button" popovertarget="site-nav">
+        <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#menu"/></svg>menu
+      </button>
+      <nav id="site-nav" class="site-nav" popover aria-label="Main">
+        <ul class="site-nav__links" role="list">
+          <li><a href="/#work">work</a></li>
+          <li><a href="/#experience">experience</a></li>
+          <li><a href="/#skills">skills</a></li>
+          <li><a href="/#contact">contact</a></li>
+        </ul>
+        <div class="site-nav__actions">
+          <a class="btn btn--ghost site-nav__github" href="https://github.com/cameyer260" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>
+          </a>
+          <a class="btn btn--outline btn--sm" href="/christopher-meyer-resume.pdf" target="_blank" rel="noreferrer" hx-boost="false">resume</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- /shared:header -->
+
+  <main id="main" tabindex="-1">
+    <section id="top" class="hero">
+      <div class="container hero__inner">
+        <p class="badge hero__badge" data-reveal><span class="badge__dot" aria-hidden="true"></span><span><span class="hero__badge-line">open to Summer &amp; Fall 2027</span> <span class="hero__badge-line">SWE internships &amp; freelance</span></span></p>
+        <h1 class="hero__name" data-reveal>Christopher Meyer</h1>
+        <div class="hero__base" data-reveal>
+          <div class="hero__whoami">
+            <p class="hero__cmd">$ whoami</p>
+            <p class="hero__role"><span class="prompt" aria-hidden="true">→</span> <span class="typewriter" data-typewriter>Full-Stack Software Engineer<span class="cursor" aria-hidden="true"></span></span></p>
+          </div>
+          <div class="hero__intro">
+            <p class="hero__lede">Currently a CS student at SIUE, based in Edwardsville, IL · St.&nbsp;Louis area.</p>
+            <div class="hero__doors">
+              <a class="btn btn--primary btn--lg" href="#work">
+                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#briefcase"/></svg>[&nbsp;hiring?&nbsp;]<svg class="icon icon--trail" aria-hidden="true"><use href="/images/icons.svg#arrow-right"/></svg>
+              </a>
+              <a class="btn btn--outline btn--lg" href="/freelance">
+                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#globe"/></svg>[&nbsp;freelance software development&nbsp;]<svg class="icon icon--trail" aria-hidden="true"><use href="/images/icons.svg#arrow-right"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about" aria-label="About">
+      <div class="container split">
+        <figure class="about__figure" data-reveal>
+          <img class="about__photo" src="/christopher-meyer.webp" width="1200" height="801" alt="Christopher Meyer" fetchpriority="high" decoding="async">
+          <figcaption class="about__caption"><span class="label">Fig. 1</span><span>~/christopher-meyer.webp</span></figcaption>
+        </figure>
+        <div class="about__text" data-reveal>
+          <p class="cmd">&gt; cat about.md</p>
+          <p class="about__lead">Hello all! I’m Christopher Meyer, a computer science student at SIUE expected to graduate in December 2027. I am open to Software Engineering internships in Summer and Fall of 2027 as well as freelance software development opportunities.</p>
+          <p class="about__body">This past summer, I worked as a Software Engineering Intern at <a class="link" href="https://www.joinzipper.com/" target="_blank" rel="noopener noreferrer">Zipper</a>, a studio management platform for boutique fitness studios. In addition to that, within the past year I’ve worked with multiple clients of local businesses to develop, host, and maintain websites, and I am open to working with more! I can build websites, applications, internal software tooling, APIs, etc. If you are looking for a developer—be that for a website or to help replace an internal software tool or system that you are frustrated with—feel free to <a class="link" href="#contact">reach out!</a> Working with me, you get a tool built to do exactly what you want. No signing up, managing, and wrangling a generic product—I build it, host it, and maintain it for you, so all you have to do is use it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section work">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="section-head__cmd"><span class="section-head__index">01</span><span><span class="prompt">$</span> ls ~/featured-work</span></p>
+          <h2 class="section-head__title">Featured <em>Work</em></h2>
+          <p class="section-head__desc">Three projects — a prototype-site CLI, production RAG, and a client mobile app in progress.</p>
+        </header>
+        <div class="work-grid">
+        <article class="card project project--featured" data-spotlight data-reveal>
+          <div class="terminal__bar">
+            <span class="terminal__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="terminal__title">~/projects/site-builder</span>
+            <span class="terminal__meta">Jun 2026</span>
+          </div>
+          <div class="project__body">
+            <div class="project__intro">
+              <p class="label accent">CLI tool that builds and deploys prototype sites</p>
+              <h3 class="project__name">Site Builder</h3>
+            </div>
+            <ul class="ticks project__bullets" role="list">
+              <li>CLI tool that builds and deploys prototype sites for prospective clients.</li>
+              <li>Takes a prospective client’s URL, documents, or notes and returns a working, deployed prototype website in under 20 minutes.</li>
+              <li>Gates on site quality through an agentic review/fix pass, plus passing accessibility and Lighthouse score metrics.</li>
+              <li>Returns a live URL on Cloudflare Pages, making client outreach seamless.</li>
+            </ul>
+            <div class="project__footer">
+              <ul class="cluster project__tags" role="list" aria-label="Tech">
+              <li class="tag">TypeScript</li>
+              <li class="tag">Bun</li>
+              <li class="tag">Claude</li>
+              <li class="tag">Astro</li>
+              <li class="tag">Cloudflare Pages</li>
+              <li class="tag">Playwright</li>
+              </ul>
+              <div class="cluster project__links">
+              <a class="btn btn--outline btn--sm" href="https://github.com/cameyer260/site-builder" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>Code</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card project" data-spotlight data-reveal>
+          <div class="terminal__bar">
+            <span class="terminal__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="terminal__title">~/projects/stafferai</span>
+            <span class="terminal__meta">Mar 2026</span>
+          </div>
+          <div class="project__body">
+            <div class="project__intro">
+              <p class="label accent">Multi-Tenant RAG Application</p>
+              <h3 class="project__name">StafferAI</h3>
+            </div>
+            <ul class="ticks project__bullets" role="list">
+              <li>Production, multi-tenant AI knowledge platform enabling teams to query internal documents with source-grounded responses and citations.</li>
+              <li>Org-scoped pgvector retrieval over Supabase Auth, RLS and RBAC.</li>
+              <li>Ingestion pipeline, Stripe subscriptions and per-tenant rate limiting.</li>
+            </ul>
+            <div class="project__footer">
+              <ul class="cluster project__tags" role="list" aria-label="Tech">
+              <li class="tag">Next.js</li>
+              <li class="tag">OpenAI</li>
+              <li class="tag">Supabase</li>
+              <li class="tag">pgvector</li>
+              <li class="tag">Stripe</li>
+              </ul>
+              <div class="cluster project__links">
+              <a class="btn btn--primary btn--sm" href="https://stafferai.app" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#arrow-up-right"/></svg>Live Site</a>
+              <a class="btn btn--outline btn--sm" href="https://github.com/cameyer260/stafferai-public" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>Code</a>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- shared:procks -->
+        <article class="card project project--wip" data-spotlight data-reveal>
+          <div class="terminal__bar">
+            <span class="terminal__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="terminal__title">~/projects/procks</span>
+            <span class="terminal__meta">in progress</span>
+          </div>
+          <div class="project__body">
+            <div class="project__intro">
+              <p class="label accent">Client project</p>
+              <h3 class="project__name">Procks <span class="badge"><span class="badge__dot" aria-hidden="true"></span>WIP</span></h3>
+            </div>
+            <p class="project__summary">Building a social networking app for a client: a cross-platform iOS and Android app with a location-aware backend and a Python photo-matching worker.</p>
+            <div class="project__footer">
+              <ul class="cluster project__tags" role="list" aria-label="Tech">
+              <li class="tag">Flutter</li>
+              <li class="tag">Dart</li>
+              <li class="tag">Firebase Auth</li>
+              <li class="tag">Firestore</li>
+              <li class="tag">Firebase Storage</li>
+              <li class="tag">Cloud Messaging</li>
+              <li class="tag">Cloud Functions (Node.js)</li>
+              <li class="tag">Python</li>
+              <li class="tag">OpenCV</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <!-- /shared:procks -->
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="section-head__cmd"><span class="section-head__index">02</span><span><span class="prompt">$</span> cat experience.log</span></p>
+          <h2 class="section-head__title">Experience</h2>
+          <p class="section-head__desc">Shipping software with a team and building directly for clients.</p>
+        </header>
+        <ol class="experience" role="list">
+          <li class="card role" data-reveal>
+            <header class="role__header">
+              <p class="role__company">Zipper</p>
+              <h3 class="role__title">Software Engineer Intern</h3>
+              <ul class="cluster role__links" role="list" aria-label="Zipper links">
+                <li><a class="link-arrow" href="https://www.joinzipper.com/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#globe"/></svg>Website<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#arrow-up-right"/></svg></a></li>
+                <li><a class="link-arrow" href="https://www.linkedin.com/company/joinzipper" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg>LinkedIn<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#arrow-up-right"/></svg></a></li>
+              </ul>
+              <p class="role__period"><time datetime="2026-03">Mar 2026</time> – <time datetime="2026-08">Aug 2026</time></p>
+              <p class="role__location">Remote</p>
+            </header>
+            <ul class="ticks role__bullets" role="list">
+              <li>Shipped 50+ features and bug fixes across a studio management platform for boutique fitness studios, spanning a full-stack TypeScript codebase covering CRM, Stripe payments, scheduling, and staff management.</li>
+              <li>Extended an autonomous, agentic AI pipeline that drafts end-to-end code changes, advancing draft tickets to a runnable state and verifying them against live dev servers and the running web app.</li>
+              <li>Owned delivery of agent-assisted changes from incomplete tickets to production: investigated the application and codebase, designed implementation approaches, directed and iterated on fixes for security, architecture, functionality, code quality, and UI/UX, and validated releases through CI/CD.</li>
+            </ul>
+          </li>
+          <li class="card role" data-reveal>
+            <header class="role__header">
+              <p class="role__company">Self-Employed</p>
+              <h3 class="role__title">Freelance Software Developer</h3>
+              <p class="role__period"><time datetime="2025">2025</time> – Present</p>
+              <p class="role__location">Remote</p>
+            </header>
+            <ul class="ticks role__bullets" role="list">
+              <li>Designed, built, and deployed custom websites for local business owners end-to-end, earning 5-star client reviews.</li>
+              <li>Sourced and onboarded clients directly, delivering tailored full-stack sites; expanding the practice toward custom software systems that integrate or replace fragmented business tools and extend marketing automation.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="recommendations" class="section">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="section-head__cmd"><span class="section-head__index">03</span><span><span class="prompt">$</span> cat recommendations.md</span></p>
+          <h2 class="section-head__title">Recommendations</h2>
+          <p class="section-head__desc">Feedback from people I’ve worked with.</p>
+        </header>
+        <figure class="rec" data-reveal>
+          <div class="rec__body">
+            <p class="label accent">Exceptional Intern, Rare Find</p>
+            <blockquote class="rec__quote">
+              <p>I was really surprised with Chris’s <span class="nowrap">in-depth</span> knowledge for his age and years of experience. … He quickly stood out across all other candidates I had met with over the previous months and years with his aptitude, intelligence, creativity, and drive. … Chris is a rare find and I can’t recommend him enough.</p>
+            </blockquote>
+          </div>
+          <figcaption class="rec__by">
+            <span class="rec__avatar" aria-hidden="true">KR</span>
+            <span class="rec__who">
+              <span class="rec__name">Kerry Ritter</span>
+              <span class="rec__role">Co-founder, Zipper</span>
+              <span class="rec__meta">Managed Christopher directly · August&nbsp;7,&nbsp;2026</span>
+            </span>
+            <a class="link-arrow rec__link" href="https://www.linkedin.com/in/cameyer06/" target="_blank" rel="noreferrer">View on LinkedIn<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#arrow-up-right"/></svg></a>
+          </figcaption>
+          <details class="rec__full">
+            <summary><span class="rec__chevron" aria-hidden="true"></span>Read full recommendation</summary>
+            <div class="rec__text">
+              <p>Chris and I met after I saw his post in a local social group, advertising his freelance efforts and already showing his drive and eagerness to apply his craft. I scoped out his website and resume and saw that he was a university CS student and was leverage AI tools to make him more productive. So, obviously, the question was, “does Chris know what he’s doing, or just sending AI code out the door to pad his resume and GitHub?”</p>
+              <p>I was really surprised with Chris’s in-depth knowledge for his age and years of experience. We talked about his approaches to AI system context engineering and integrations, how he prefers to deploy his apps and databases, and what frameworks/libraries he enjoys and why. He quickly stood out across all other candidates I had met with over the previous months and years with his aptitude, intelligence, creativity, and drive.</p>
+              <p>He worked with us for a few months and he hit all the qualities and behaviors you could ask for in a junior, often exceeding expectations:</p>
+              <ul class="ticks" role="list">
+                <li>He worked autonomously but asked for help when he needed it, showing what he tried already and what particular sticking points he had.</li>
+                <li>He produced quality output, efficiently and well-validated.</li>
+                <li>He offered creative new solutions to our platform and to our developer experience.</li>
+                <li>He stayed on top of emerging technologies, offering his opinion and insights with clear understanding of the topic.</li>
+              </ul>
+              <p>Chris is a rare find and I can’t recommend him enough.</p>
+            </div>
+          </details>
+        </figure>
+      </div>
+    </section>
+
+    <section id="journey" class="section">
+      <div class="container timeline">
+        <div class="timeline__aside">
+          <header class="section-head" data-reveal>
+            <p class="section-head__cmd"><span class="section-head__index">04</span><span><span class="prompt">$</span> cat journey.log</span></p>
+            <h2 class="section-head__title">My <em>Journey</em></h2>
+            <p class="section-head__desc">From a first Java class in high school to shipping software for real users and clients.</p>
+          </header>
+          <p class="timeline__year" aria-hidden="true" data-timeline-year>2022</p>
+        </div>
+        <ol class="tl" role="list" data-timeline>
+          <li class="tl__item" data-reveal data-year="2022">
+            <span class="tl__node" aria-hidden="true"></span>
+            <div class="tl__content">
+              <p class="tl__date">2022</p>
+              <h3 class="tl__title">First lines of Java</h3>
+              <p class="tl__text">I started introductory programming courses in Java at Edwardsville High School.</p>
+            </div>
+          </li>
+          <li class="tl__item" data-reveal data-year="2023">
+            <span class="tl__node" aria-hidden="true"></span>
+            <div class="tl__content">
+              <p class="tl__date">2023</p>
+              <h3 class="tl__title">Building a foundation</h3>
+              <p class="tl__text">I continued Java through senior year and began AP programming courses, earning college credit and building a strong foundation in object-oriented programming.</p>
+            </div>
+          </li>
+          <li class="tl__item" data-reveal data-year="2024">
+            <span class="tl__node" aria-hidden="true"></span>
+            <div class="tl__content">
+              <p class="tl__date">2024</p>
+              <h3 class="tl__title">From high school to web apps</h3>
+              <p class="tl__text">I graduated high school, began learning React and web development over the summer, and started a B.S. in Computer Science with a Mathematics minor at SIUE. I built my first app—a Twitter-style social media clone—and explored Chrome extensions, including FastGPT for ChatGPT.</p>
+            </div>
+          </li>
+          <li class="tl__item" data-reveal data-year="2025">
+            <span class="tl__node" aria-hidden="true"></span>
+            <div class="tl__content">
+              <p class="tl__date">2025</p>
+              <h3 class="tl__title">Shipping projects, starting freelance</h3>
+              <p class="tl__text">I expanded from React into Next.js and built <a class="link" href="https://github.com/cameyer260/skillsphere" target="_blank" rel="noreferrer">PlaySkillSphere</a>, with real-time WebSocket lobbies and games on my own VPS, and <a class="link" href="https://github.com/cameyer260/docuquery" target="_blank" rel="noreferrer">DocuQuery</a>, a document-chat/RAG app using Next.js and Supabase vector search. Near the end of the year, I began putting myself out there as a freelance software developer.</p>
+              <p class="tl__meta">Freelance · 2025 – Present</p>
+            </div>
+          </li>
+          <li class="tl__item" data-reveal data-year="2026">
+            <span class="tl__node" aria-hidden="true"></span>
+            <div class="tl__content">
+              <p class="tl__date">2026</p>
+              <h3 class="tl__title">Building for clients and teams</h3>
+              <p class="tl__text">I built <a class="link" href="https://stafferai.app" target="_blank" rel="noreferrer">StafferAI</a>, a production multi-tenant RAG platform with organization access controls, billing and rate limiting; gained website clients; and landed my first software engineering internship at <a class="link" href="https://www.joinzipper.com/" target="_blank" rel="noreferrer">Zipper</a>. I’m now building Procks, a mobile social networking app for a client.</p>
+              <p class="tl__text">I also built <a class="link" href="https://github.com/cameyer260/site-builder" target="_blank" rel="noreferrer">Site Builder</a>, a CLI that generates and deploys prototype client sites. Next, I want to expand it into an outreach-to-demo-site tool for freelance web developers.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="section-head__cmd"><span class="section-head__index">05</span><span><span class="prompt">$</span> cat education.md</span></p>
+          <h2 class="section-head__title">Education</h2>
+        </header>
+        <article class="card edu" data-spotlight data-reveal>
+          <div class="edu__main">
+            <p class="edu__period">Aug 2024 – Fall 2027</p>
+            <h3 class="edu__school">Southern Illinois University Edwardsville</h3>
+            <p class="edu__degree">B.S. Computer Science, Minor in Mathematics</p>
+            <p class="edu__meta">Edwardsville, IL · GPA 3.57 / 4.0</p>
+            <div class="cluster edu__resume">
+              <a class="btn btn--primary" href="/christopher-meyer-resume.pdf" download hx-boost="false"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#download"/></svg>Download résumé</a>
+              <a class="btn btn--outline" href="/christopher-meyer-resume.pdf" target="_blank" rel="noreferrer" hx-boost="false"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg>Open PDF</a>
+            </div>
+          </div>
+          <div class="edu__details">
+            <div class="stack">
+              <p class="label">scholarships</p>
+              <ul class="cluster" role="list">
+                <li class="tag">Cougar Pride</li>
+                <li class="tag">Johnetta Haley</li>
+              </ul>
+            </div>
+            <div class="stack">
+              <p class="label">relevant coursework</p>
+              <ul class="cluster" role="list">
+                <li class="tag">Algorithms &amp; Data Structures</li>
+                <li class="tag">Operating Systems</li>
+                <li class="tag">Database &amp; Web System Development</li>
+                <li class="tag">Programming Languages</li>
+                <li class="tag">Computer Organization &amp; Architecture</li>
+                <li class="tag">Linear Algebra</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="section-head__cmd"><span class="section-head__index">06</span><span><span class="prompt">$</span> cat skills.json</span></p>
+          <h2 class="section-head__title">Skills</h2>
+        </header>
+        <div class="skills">
+          <div class="skills__pane" data-reveal>
+            <h3 class="skills__label">Languages</h3>
+            <ol class="skills__list" role="list">
+              <li>TypeScript</li>
+              <li>Python</li>
+              <li>Java</li>
+              <li>C++</li>
+              <li>Rust</li>
+              <li>PHP</li>
+              <li>SQL</li>
+              <li>HTML/CSS</li>
+            </ol>
+          </div>
+          <div class="skills__pane" data-reveal>
+            <h3 class="skills__label">Frameworks &amp; Tech</h3>
+            <ol class="skills__list" role="list">
+              <li>React / Next.js</li>
+              <li>Node</li>
+              <li>Express</li>
+              <li>NestJS</li>
+              <li>Supabase</li>
+              <li>Stripe</li>
+              <li>MongoDB</li>
+            </ol>
+          </div>
+          <div class="skills__pane" data-reveal>
+            <h3 class="skills__label">Tools</h3>
+            <ol class="skills__list" role="list">
+              <li>Claude Code</li>
+              <li>Neovim</li>
+              <li>Git</li>
+              <li>GitHub</li>
+              <li>Docker</li>
+              <li>Cloudflare</li>
+              <li>AWS</li>
+              <li>SSH</li>
+              <li>Unix</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beyond" class="section">
+      <div class="container beyond">
+        <header class="section-head" data-reveal>
+          <p class="section-head__cmd"><span class="section-head__index">07</span><span><span class="prompt">$</span> cat ~/.beyond</span></p>
+          <h2 class="section-head__title">Beyond the Code</h2>
+        </header>
+        <div class="beyond__body" data-reveal>
+          <p class="cmd">&gt; cat beyond.md</p>
+          <p class="beyond__text">Outside of work I like to hang out with friends and stay active. I go to the gym regularly, bike, and run. I also really enjoy traveling, especially to places like national parks. When I’m staying in, I like to read, watch movies, and listen to music.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="section-head__cmd"><span class="section-head__index">08</span><span><span class="prompt">$</span> ./contact.sh</span></p>
+          <h2 class="section-head__title">Get in <em>touch</em></h2>
+          <p class="section-head__desc">Open to Summer &amp; Fall 2027 SWE internships &amp; freelance. Drop a line.</p>
+        </header>
+        <div class="contact">
+          <ul class="contact__channels" role="list" data-reveal>
+            <li>
+              <a class="channel" href="mailto:cameyer06@gmail.com">
+                <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#mail"/></svg></span>
+                <span class="channel__text"><span class="channel__label">email</span><span class="channel__value">cameyer06@gmail.com</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="channel" href="tel:+13145291949">
+                <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#phone"/></svg></span>
+                <span class="channel__text"><span class="channel__label">phone</span><span class="channel__value">(314) 529-1949</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="channel" href="https://github.com/cameyer260" target="_blank" rel="noreferrer">
+                <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></span>
+                <span class="channel__text"><span class="channel__label">github</span><span class="channel__value">github.com/cameyer260</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="channel" href="https://www.linkedin.com/in/cameyer06/" target="_blank" rel="noreferrer">
+                <span class="channel__icon"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></span>
+                <span class="channel__text"><span class="channel__label">linkedin</span><span class="channel__value">in/cameyer06</span></span>
+              </a>
+            </li>
+          </ul>
+          <div class="terminal contact__window" data-reveal>
+            <div class="terminal__bar">
+              <span class="terminal__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+              <span class="terminal__title">contact.sh</span>
+            </div>
+            <div class="terminal__body" data-contact>
+              <!-- shared:contact-form -->
+              <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" hx-boost="false">
+                <div class="field">
+                  <label class="field__label" for="contact-name">name</label>
+                  <input class="field__input" id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Ada Lovelace">
+                </div>
+                <div class="field">
+                  <label class="field__label" for="contact-email">email</label>
+                  <input class="field__input" id="contact-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+                </div>
+                <div class="field contact-form__wide">
+                  <label class="field__label" for="contact-message">message</label>
+              <!-- /shared:contact-form -->
+                  <textarea class="field__input" id="contact-message" name="message" required placeholder="Let’s build something."></textarea>
+              <!-- shared:contact-form-end -->
+                </div>
+                <input type="hidden" name="access_key" value="4fba4adc-a100-40a6-85b6-c6e79398ce1f">
+                <input type="checkbox" name="botcheck" hidden tabindex="-1" autocomplete="off">
+                <div class="contact-form__actions contact-form__wide">
+                  <p class="contact-form__alt">or email <a class="link" href="mailto:cameyer06@gmail.com">directly</a></p>
+                  <button class="btn btn--primary" type="submit"><span data-submit-label>Send</span><svg class="icon icon--trail" aria-hidden="true"><use href="/images/icons.svg#arrow-right"/></svg></button>
+                </div>
+                <p class="contact-form__error contact-form__wide" role="alert" data-contact-error hidden>✗ something went wrong — try again or email directly.</p>
+              </form>
+              <div class="contact-form__success" role="status" tabindex="-1" data-contact-success hidden>
+                <p class="contact-form__done"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#check"/></svg>message sent</p>
+                <p>Thanks for reaching out — I’ll get back to you soon.</p>
+                <button class="btn btn--outline btn--sm" type="button" data-send-another>Send another</button>
+              </div>
+              <!-- /shared:contact-form-end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><span class="prompt">$</span> © <span data-current-year>2026</span> christopher meyer</p>
+      <ul class="site-footer__links" role="list">
+        <li><a href="https://github.com/cameyer260" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/cameyer06/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg>LinkedIn</a></li>
+        <li><a href="mailto:cameyer06@gmail.com"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#mail"/></svg>Email</a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>

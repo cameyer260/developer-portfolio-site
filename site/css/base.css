@@ -1,0 +1,290 @@
+/* Layer order for the whole site. Must stay the first rule of the first stylesheet. */
+@layer reset, tokens, base, layout, components, sections, utilities;
+
+/*
+  Self-hosted fonts, latin subset (licenses in /fonts). /fonts is cached as
+  immutable, so never overwrite a font file: add it under a new name.
+*/
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("/fonts/ibm-plex-sans-var.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Arrows and check mark for prompts (← ↑ → ↓ ↗ ✓). Only downloaded when used. */
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-400-symbols.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+2190-2193, U+2197, U+2713;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/ibm-plex-mono-500-symbols.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+2190-2193, U+2197, U+2713;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  img,
+  picture,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+    padding: 0;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+
+  /* Component display rules must never un-hide [hidden] elements. */
+  [hidden] {
+    display: none !important;
+  }
+}
+
+@layer tokens {
+  :root {
+    /* Color: warm-dark, never black, no cool greys */
+    --color-bg: #14110d;
+    --color-surface: #201a14;
+    --color-surface-2: #2b231b;
+    --color-text: #faf5ee;
+    --color-text-soft: #e6ddd1;
+    --color-muted: #b5a898;
+    --color-faint: #8e8171; /* quiet labels (AA on bg and surface) */
+    --color-accent: #f59e0b;
+    --color-accent-2: #ea7a3e;
+    --color-on-accent: #14110d;
+    --color-border: rgb(245 239 230 / 0.12);
+    --color-border-strong: rgb(245 239 230 / 0.22);
+    --color-accent-soft: rgb(245 158 11 / 0.12);
+    --color-accent-line: rgb(245 158 11 / 0.42);
+    --color-glow: rgb(245 158 11 / 0.14);
+
+    /* Type */
+    --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+    --text-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+    --text-xl: clamp(1.25rem, 1.15rem + 0.45vw, 1.5rem);
+    --text-2xl: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
+    --text-3xl: clamp(2.125rem, 1.6rem + 2.2vw, 3.5rem);
+    --text-4xl: clamp(2.75rem, 1.9rem + 3.8vw, 5rem);
+    --text-display: clamp(3.25rem, 1.5rem + 9vw, 9.5rem);
+
+    --leading-tight: 1.05;
+    --leading-snug: 1.3;
+    --leading-body: 1.65;
+    --tracking-label: 0.12em;
+
+    /* Space */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+    --space-9: 6rem;
+    --space-section: clamp(4.5rem, 3rem + 6vw, 9rem);
+    --gutter: clamp(1.25rem, 0.75rem + 2.2vw, 2.5rem);
+    --container: 76rem;
+    --container-narrow: 46rem;
+    --header-h: 4rem;
+
+    /* Shape */
+    --radius-sm: 0.375rem;
+    --radius: 0.625rem;
+    --radius-lg: 1rem;
+    --radius-pill: 999px;
+
+    /* Motion */
+    --dur-fast: 150ms;
+    --dur: 250ms;
+    --dur-slow: 700ms;
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-bg);
+    scroll-padding-top: calc(var(--header-h) + var(--space-5));
+  }
+
+  /* boost.js sets data-swapping so htmx's own scroll jumps stay instant. */
+  @media (prefers-reduced-motion: no-preference) {
+    html:not([data-swapping]) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /*
+    Film grain: an opaque noise tile whose colors average to --color-bg, so it
+    adds texture without shifting the palette. It scrolls with the page, so
+    there's no fixed overlay to composite.
+  */
+  body {
+    min-height: 100vh;
+    background-color: var(--color-bg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0.16 0 0 0 -0.0016 0.16 0 0 0 -0.0133 0.16 0 0 0 -0.0290 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  h1 em,
+  h2 em,
+  h3 em {
+    color: var(--color-accent);
+  }
+
+  p,
+  li,
+  blockquote {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Safety net: under reduced motion, every transition and time-based
+     animation is instant. Features also gate their own motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Programmatic focus targets (after a page swap) don't need a ring. */
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
+  ::selection {
+    background: rgb(245 158 11 / 0.3);
+    color: var(--color-text);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-surface-2) transparent;
+  }
+}

@@ -1,0 +1,53 @@
+@layer layout {
+  .container {
+    width: min(100% - 2 * var(--gutter), var(--container));
+    margin-inline: auto;
+  }
+
+  .container--narrow {
+    width: min(100% - 2 * var(--gutter), var(--container-narrow));
+  }
+
+  .section {
+    padding-block: var(--space-section);
+  }
+
+  .section + .section {
+    padding-top: 0;
+  }
+
+  /* Vertical rhythm: space between direct children. */
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-gap, var(--space-4));
+  }
+
+  /* Wrapping row of inline items (tags, buttons, links). */
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--cluster-gap, var(--space-2));
+  }
+
+  /* Responsive auto-fit grid; set --grid-min to change the column width. */
+  .grid {
+    display: grid;
+    gap: var(--grid-gap, var(--space-5));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-min, 20rem)), 1fr));
+  }
+
+  /* Two columns from tablet up; --split sets the ratio. */
+  .split {
+    display: grid;
+    gap: var(--split-gap, var(--space-7));
+  }
+
+  @media (width >= 48rem) {
+    .split {
+      grid-template-columns: var(--split, 1fr 1fr);
+      align-items: var(--split-align, start);
+    }
+  }
+}

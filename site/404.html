@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- shared:head -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#14110d">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false,"refreshOnHistoryMiss":true}'>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/ibm-plex-sans-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/sections.css">
+  <link rel="stylesheet" href="/css/utilities.css">
+  <script defer src="/vendor/htmx-2.0.11.min.js"></script>
+  <script defer src="/vendor/head-support-2.0.5.min.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <!-- /shared:head -->
+
+  <!-- page:meta -->
+  <title>Page not found | Christopher Meyer</title>
+  <meta name="robots" content="noindex">
+  <!-- /page:meta -->
+</head>
+<body hx-boost="true" hx-ext="head-support">
+  <!-- shared:header -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a class="site-header__logo" href="/#top"><span class="prompt">~/</span>christopher-meyer</a>
+      <button class="site-header__toggle btn btn--outline btn--sm" type="button" popovertarget="site-nav">
+        <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#menu"/></svg>menu
+      </button>
+      <nav id="site-nav" class="site-nav" popover aria-label="Main">
+        <ul class="site-nav__links" role="list">
+          <li><a href="/#work">work</a></li>
+          <li><a href="/#experience">experience</a></li>
+          <li><a href="/#skills">skills</a></li>
+          <li><a href="/#contact">contact</a></li>
+        </ul>
+        <div class="site-nav__actions">
+          <a class="btn btn--ghost site-nav__github" href="https://github.com/cameyer260" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>
+          </a>
+          <a class="btn btn--outline btn--sm" href="/christopher-meyer-resume.pdf" target="_blank" rel="noreferrer" hx-boost="false">resume</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- /shared:header -->
+
+  <main id="main" tabindex="-1">
+    <section class="hero notfound">
+      <div class="container notfound__inner">
+        <div class="terminal notfound__term" data-reveal>
+          <div class="terminal__bar">
+            <span class="terminal__dots" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="terminal__title">zsh</span>
+          </div>
+          <div class="terminal__body notfound__log">
+            <p><span class="prompt">$</span> cd <span class="notfound__path" data-path>./this-page</span></p>
+            <p class="notfound__err">cd: no such file or directory</p>
+            <p><span class="prompt">$</span> <span class="cursor" aria-hidden="true"></span></p>
+          </div>
+        </div>
+        <div class="notfound__text" data-reveal>
+          <p class="label accent">Error 404</p>
+          <h1 class="notfound__title">This page doesn’t <em>exist.</em></h1>
+          <p class="hero__lede">The link may be old or mistyped. Try one of these instead:</p>
+          <div class="hero__doors">
+            <a class="btn btn--primary btn--lg" href="/"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#arrow-left"/></svg>Back to the portfolio</a>
+            <a class="btn btn--outline btn--lg" href="/freelance">Freelance services<svg class="icon icon--trail" aria-hidden="true"><use href="/images/icons.svg#arrow-right"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- shared:footer -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><span class="prompt">$</span> © <span data-current-year>2026</span> christopher meyer</p>
+      <ul class="site-footer__links" role="list">
+        <li><a href="https://github.com/cameyer260" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/cameyer06/" target="_blank" rel="noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg>LinkedIn</a></li>
+        <li><a href="mailto:cameyer06@gmail.com"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#mail"/></svg>Email</a></li>
+      </ul>
+    </div>
+  </footer>
+  <!-- /shared:footer -->
+</body>
+</html>
