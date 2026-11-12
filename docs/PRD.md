@@ -5,8 +5,8 @@ What christophermeyer.dev does and for whom. For implementation, see
 
 ## Audiences
 
-- **Recruiters (primary):** Summer and Fall 2027 software engineering internships,
-  not Winter/Spring 2027. `/` leads with the engineer, career story and projects;
+- **Recruiters (primary):** a Summer 2027 software engineering internship,
+  not Fall, Winter, or Spring 2027. `/` leads with the engineer, career story and projects;
   it never shows pricing.
 - **Small-business owners (secondary):** freelance websites and custom software in
   Edwardsville, the Metro East and St. Louis. `/freelance` provides work, client
@@ -42,10 +42,10 @@ motifs are flavor, not a navigable terminal.
 
 In order:
 
-1. **Hero (`#top`):** name, typed full-stack role, Summer & Fall 2027 availability,
-   SIUE/location intro and the two doors.
-2. **About (`#about`):** portrait and introduction, December 2027 graduation,
-   internship experience, freelance capabilities and contact link. The portrait
+1. **Hero (`#top`):** name, typed full-stack role, Summer 2027 internship availability
+   and freelance openness, SIUE/location intro and the two doors.
+2. **About (`#about`):** portrait and introduction, graduating December 2027,
+   the current client mobile app, internship experience, freelance capabilities and contact link. The portrait
    keeps its original landscape composition at its native 1200×801 size, capped
    so high-DPI displays never upscale it; it stays in About, not the hero.
 3. **Featured Work (`#work`):** three cards — Site Builder as the flagship, then
@@ -55,7 +55,7 @@ In order:
 4. **Experience (`#experience`):** two substantial role cards with visible titles,
    organizations, dates, Remote locations and full accomplishment bullets:
    Software Engineer Intern at Zipper (Mar–Aug 2026), then Freelance Software
-   Developer / Self-Employed (2025–Present). Both cards share the standard card
+   Engineer / Self-Employed (2025–Present). Both cards share the standard card
    border; only the Procks WIP card keeps its distinct dashed outline.
    Desktop pairs role metadata with the bullets; smaller screens stack them.
    The header's experience link lands here, not on the journey.
@@ -72,7 +72,7 @@ In order:
    minor, GPA, scholarships, coursework, download and open-PDF links. Separate
    from the journey and professional experience.
 8. **Skills (`#skills`):** Languages, Frameworks & Tech, Tools in a compact
-   label-plus-wrapping-list presentation covering all 24 skill names and three
+   label-plus-wrapping-list presentation covering all 22 skill names and three
    categories, with nothing hidden behind an interaction.
 9. **Beyond the Code (`#beyond`):** activities, travel and interests.
 10. **Contact (`#contact`):** email, intentional Google Voice phone, GitHub,
@@ -95,7 +95,7 @@ PlaySkillSphere keeps its GitHub link, never its dead live site.
 | 2023 | Continued Java through senior year; AP courses earning college credit and an object-oriented foundation. |
 | 2024 | Graduated high school; summer React learning and a first Twitter-style app; started the SIUE B.S./Mathematics minor; explored Chrome extensions including FastGPT. |
 | 2025 | Expanded into Next.js; built PlaySkillSphere (WebSocket lobbies/games, self-hosted VPS) and DocuQuery (document-chat/RAG, Next.js + Supabase vector search); began freelancing near year end. |
-| 2026 | Built StafferAI (production multi-tenant RAG with access controls, billing, rate limiting); gained website clients; landed the Zipper software engineering internship; now building client mobile app Procks. Also built the Site Builder CLI; expanding it into an outreach-to-demo-site tool is a future direction, not built functionality. |
+| 2026 | Built StafferAI (production multi-tenant RAG with access controls, billing, rate limiting); gained website clients; landed the Zipper software engineering internship. Currently the sole full-stack developer of Procks, a client-commissioned social networking mobile app. Also built the Site Builder CLI; expanding it into an outreach-to-demo-site tool is a future direction, not built functionality. |
 
 ## `/freelance`
 
@@ -173,7 +173,7 @@ analytics is not verified locally.
 
 - Preserve existing project, pricing, recommendation and review wording unless an
   approved change calls for edits. Do not rewrite quotes for grammar.
-- Availability is Summer and Fall 2027 only. About says December 2027 graduation;
+- Availability is a Summer 2027 software engineering internship, and freelance work. About says graduating in December 2027;
   the education period and resume retain their existing wording.
 - The 314 Google Voice phone is intentional; do not replace it with the resume's
   personal number or change the resume PDF to reconcile dates.

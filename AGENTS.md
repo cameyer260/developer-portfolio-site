@@ -5,8 +5,8 @@ For setup, see [README.md](./README.md).
 
 ## What this is
 
-Christopher Meyer's personal developer portfolio. `/` targets recruiters for
-**Summer and Fall 2027** software engineering internships; `/freelance` targets
+Christopher Meyer's personal developer portfolio. `/` targets recruiters for a
+**Summer 2027** software engineering internship and is open to freelance work; `/freelance` targets
 small-business owners seeking websites and custom software. Pricing stays off the
 homepage.
 
@@ -76,8 +76,9 @@ manifest or install the removed framework to satisfy stale instructions.**
 
 ## Content and integration gotchas
 
-- Internship availability is **Summer and Fall 2027 only**, never Winter/Spring.
-  The About graduation sentence says **December 2027**. The timeline uses one
+- Internship availability is a **Summer 2027** software engineering internship,
+  plus freelance software development. Not Fall, Winter, or Spring. The About
+  graduation sentence says **graduating in December 2027**. The timeline uses one
   entry per year, 2022–2026; the freelance practice's `2025 – Present` wording
   lives compactly within 2025.
 - The **314 Google Voice number is intentional**. Do not substitute the personal

@@ -1,6 +1,6 @@
 # Christopher Meyer — Dev Portfolio
 
-Personal portfolio for Summer and Fall 2027 software engineering internships and
+Personal portfolio for a Summer 2027 software engineering internship and
 freelance software development. Recruiters start at `/`; local businesses use
 `/freelance`.
 
